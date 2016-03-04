@@ -2270,7 +2270,6 @@ body.is-menu-visible #menu {
     margin: 0 auto;
     width: 55em; }
   #banner .logo {
-    width: 55em;
     margin: 0 auto;
     -moz-transition: opacity 2s ease, -moz-transform 1s ease;
     -webkit-transition: opacity 2s ease, -webkit-transform 1s ease;
@@ -2282,6 +2281,9 @@ body.is-menu-visible #menu {
     transform: translateY(0);
     opacity: 1;
     text-align: right; }
+    @media screen and (max-width: 1280px) {
+      #banner .logo {
+        text-align: center; } }
     #banner .logo .icon {
       border-radius: 100%;
       border: solid 2px rgba(255, 255, 255, 0.125);

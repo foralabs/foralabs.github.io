@@ -15,7 +15,6 @@
 		}
 
 		.logo {
-			width: _size(inner);
 			margin: 0 auto;
 			@include vendor('transition', (
 				'opacity 2s ease',
@@ -25,6 +24,9 @@
 			opacity: 1;
 			//margin: 0 0 (_size(element-margin) * 0.65) 0;
 			text-align: right;
+			@include breakpoint(large) {
+				text-align: center;
+			}
 
 			.icon {
 				border-radius: 100%;
