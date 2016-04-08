@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -45,6 +47,24 @@
 						</div>
 					</section>
 
+					<!-- Four -->
+					<section id="two" class="wrapper alt style1">
+						<div class="inner">
+							<h2 class="major">Works</h2>
+							<p>The works that both enjoy & proud us. Hope you like them.</p>
+							<section class="features">
+								{% for work in site.data.works %}
+								<article>
+									<a href="{{ work.url }}" class="image" target="_blank"><img src="{{ work.image }}" alt="" /></a>
+									<h3 class="major">{{ work.title }}</h3>
+									<p>{{ work.description }}</p>
+									<a href="{{ work.url }}" class="special" target="_blank">{{ work.url | remove: 'http://' | remove: 'https://'}}</a>
+								</article>
+								{% endfor %}
+							</section>
+						</div>
+					</section>
+
 				</section>
 
 				<section id="footer">
@@ -58,7 +78,7 @@
 						<ul class="copyright">
 							<li>&copy; ForaLabs</li>
               <li>Made in İstanbul with <i class="fa fa-heart fa-mini"></i></li>
-              <li>Based on a <a href="http://html5up.net/solid-state">template by HTML5UP</a></li>
+              <li>Built on <a href="http://jekyllrb.com">Jekyll</a> based on a <a href="http://html5up.net/solid-state">template by HTML5UP</a></li>
 						</ul>
 					</div>
 				</section>

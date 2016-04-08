@@ -1,0 +1,39 @@
+- title: RBA Architecture
+  image: /images/works/rba.png
+  description: An elegant web page for a young, talented architecture startup.
+  url: http://rbamimarlik.com
+
+- title: Taksim Muradiye
+  image: /images/works/muradiye.png
+  description: Single page web app for a dormitory located in Taksim Square.
+  url: http://muradiye.tk
+
+- title: Demirbilek Forklift
+  image: /images/works/dbforklift.png
+  description: Single page application for a well known forklift firm in Antalya.
+  url: http://demirbilekforklif.com
+
+- title: hsnhsYn Architecture & Design
+  image: /images/works/hsnhsyn.png
+  description: A well designed landing page for a talented architecture & indoor designer.
+  url: http://hsnhsn.com
+
+- title: Inflation Box of Turkey
+  image: /images/works/enflasyon.png
+  description: A SPA to list the products used to identify inflation in Turkey.
+  url: http://enflasyonsepeti.com
+
+- title: Inovatif Energy & Information Technologies
+  image: /images/works/ifenerji.png
+  description: Web page of a tech startup which focuses on graphics development in İstanbul.
+  url: http://ifenerji.com
+
+- title: Paper Theme
+  image: /images/works/paper.png
+  description: An open source Jekyll theme utilising Material Design.
+  url: http://dbtek.github.io/paper-demo
+
+- title: Dbyll Theme
+  image: /images/works/dbyll.png
+  description: An elegant open source Jekyll theme.
+  url: http://dbtek.github.io/dbyll
