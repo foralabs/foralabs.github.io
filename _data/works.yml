@@ -1,12 +1,11 @@
 - title: Anıkutusu
   image: /images/works/anikutusu.png
   description: A modern design & e-commerce web app for an intuitive photo printing house.
-  url: http://beta.anikutusu.com
+  url: https://anikutusu.com
   
 - title: Galata 3400
   image: /images/works/galata3400.png
   description: An independent architecture house from Istanbul.
-  url: http://galata3400.com
   
 - title: RBA Architecture
   image: /images/works/rba.png
@@ -26,12 +25,10 @@
 - title: hsnhsYn Architecture & Design
   image: /images/works/hsnhsyn.png
   description: A well designed landing page for a talented architecture & indoor designer.
-  url: http://hsnhsyn.com
 
 - title: Inflation Box of Turkey
   image: /images/works/enflasyon.png
   description: A SPA to list the products used to identify inflation in Turkey.
-  url: http://enflasyonsepeti.tk
 
 - title: Inovatif Energy & Information Technologies
   image: /images/works/ifenerji.png
