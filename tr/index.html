@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fora Labs — İşini gören sade araçlar</title>
+  <meta name="description" content="Fora Labs sade, odaklı yazılımlar geliştirir. Keepr ile ön muhasebe ve gelir-gider takibi, U2QR ile dinamik QR kodları." />
+  <meta name="keywords" content="fora labs, keepr, u2qr, ön muhasebe, gelir gider takibi, qr kod, kobi yazılımı, küçük işletme" />
+  <link rel="canonical" href="https://forabase.com/tr/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://forabase.com/tr/" />
+  <meta property="og:title" content="Fora Labs — İşini gören sade araçlar" />
+  <meta property="og:description" content="Keepr ile ön muhasebe. U2QR ile dinamik QR kodları. Sizi uğraştırmayan araçlar." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Fora Labs — İşini gören sade araçlar" />
+  <meta name="twitter:description" content="Keepr ile ön muhasebe. U2QR ile dinamik QR kodları." />
+
+  <link rel="alternate" hreflang="en" href="https://forabase.com/" />
+  <link rel="alternate" hreflang="tr" href="https://forabase.com/tr/" />
+  <link rel="alternate" hreflang="x-default" href="https://forabase.com/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Fora Labs",
+    "url": "https://forabase.com",
+    "description": "İşini gören sade yazılımlar",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Ürünler",
+      "itemListElement": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Keepr",
+          "url": "https://keepr.forabase.com",
+          "applicationCategory": "FinanceApplication",
+          "description": "Küçük işletmeler için sade ön muhasebe uygulaması"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "U2QR",
+          "url": "https://u2qr.com",
+          "applicationCategory": "BusinessApplication",
+          "description": "Dinamik QR kod oluşturucu"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #f9f7f4;
+      --fg: #1a1a1a;
+      --muted: #6b6b6b;
+      --link: #1a1a1a;
+      --link-hover: #555;
+      --border: #e0ddd8;
+      --max: 640px;
+      --font: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+      --mono: ui-monospace, "SF Mono", "Fira Code", monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111110;
+        --fg: #e8e6e1;
+        --muted: #888;
+        --link: #e8e6e1;
+        --link-hover: #aaa;
+        --border: #2a2a28;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 17px; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.7;
+      padding: 3rem 1.5rem 6rem;
+    }
+
+    .wrap { max-width: var(--max); margin: 0 auto; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .wordmark {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .lang-switcher { display: flex; gap: 0.75rem; align-items: baseline; }
+
+    .lang-switcher a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+
+    .lang-switcher a:hover { color: var(--fg); }
+    .lang-switcher a[aria-current="page"] { color: var(--fg); font-weight: 600; }
+
+    .hero { margin-bottom: 4rem; }
+
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .hero p { color: var(--muted); font-size: 1rem; max-width: 480px; }
+
+    .products { display: flex; flex-direction: column; gap: 2.5rem; margin-bottom: 4.5rem; }
+
+    .product { border-top: 1px solid var(--border); padding-top: 1.75rem; }
+
+    .product-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-name {
+      font-family: var(--mono);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--fg);
+    }
+
+    .product-tag {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 500;
+    }
+
+    .product h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .product p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      max-width: 420px;
+    }
+
+    .product-link {
+      font-size: 0.85rem;
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: border-color 0.15s, color 0.15s;
+      font-weight: 500;
+    }
+
+    .product-link:hover { color: var(--link-hover); border-color: var(--link-hover); }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    footer a:hover { color: var(--fg); border-color: var(--fg); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="wordmark" href="/">fora labs</a>
+    <nav class="lang-switcher" aria-label="Dil">
+      <a href="/">EN</a>
+      <a href="/tr/" aria-current="page">TR</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>İşini gören sade araçlar.</h1>
+      <p>Sizi uğraştırmayan, lafı uzatmayan, işine odaklı yazılımlar geliştiriyoruz.</p>
+    </section>
+
+    <section class="products" aria-label="Ürünler">
+
+      <article class="product" itemscope itemtype="https://schema.org/SoftwareApplication">
+        <div class="product-meta">
+          <span class="product-name" itemprop="name">Keepr</span>
+          <span class="product-tag">Ön Muhasebe</span>
+        </div>
+        <h2>Hesap kitap işi dert olmaktan çıksın.</h2>
+        <p itemprop="description">Gelirinizi giderinizi kaydedin, basit raporlar alın, hesabınız hep düzenli kalsın — karmaşık programlara ve abonelik derdine gerek kalmadan.</p>
+        <a class="product-link" href="https://keepr.forabase.com" target="_blank" rel="noopener" itemprop="url">keepr.forabase.com →</a>
+        <meta itemprop="applicationCategory" content="FinanceApplication" />
+        <meta itemprop="operatingSystem" content="Web" />
+      </article>
+
+      <article class="product" itemscope itemtype="https://schema.org/SoftwareApplication">
+        <div class="product-meta">
+          <span class="product-name" itemprop="name">U2QR</span>
+          <span class="product-tag">Dinamik QR Kodları</span>
+        </div>
+        <h2>Bastırdıktan sonra bile değiştirebileceğiniz QR kodları.</h2>
+        <p itemprop="description">Dilediğiniz adrese yönlendiren dinamik QR kodları oluşturun. Yönlendirdiği adresi ne zaman isterseniz değiştirin — baskıdaki kod hep aynı kalır.</p>
+        <a class="product-link" href="https://u2qr.com" target="_blank" rel="noopener" itemprop="url">u2qr.com →</a>
+        <meta itemprop="applicationCategory" content="BusinessApplication" />
+        <meta itemprop="operatingSystem" content="Web" />
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2025 Fora Labs · <a href="/tr/iletisim/">İletişim</a></span>
+    <span>Sağlam iş. Fazlası değil.</span>
+  </footer>
+
+</div>
+</body>
+</html>
