@@ -1,0 +1,21 @@
+{%- comment -%}
+Renders one SoftwareApplication card. Params: p (project), loc (localized copy), t (i18n strings).
+{%- endcomment -%}
+<article class="product" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <div class="product-meta">
+    <span class="product-name" itemprop="name">{{ include.loc.name | escape }}</span>
+    <span class="product-tag">{{ include.loc.tag | escape }}</span>
+  </div>
+  <h2>{{ include.loc.heading | escape }}</h2>
+  <p itemprop="description">{{ include.loc.description | escape }}</p>
+  {%- if include.loc.features %}
+  <ul class="feature-list" aria-label="{{ include.t.features_label }}">
+    {%- for f in include.loc.features %}
+    <li>{{ f | escape }}</li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+  <a class="product-link" href="{% if include.p.external %}{{ include.loc.cta.href }}{% else %}{{ include.loc.cta.href | relative_url }}{% endif %}"{% if include.p.external %} target="_blank" rel="noopener"{% endif %} itemprop="url">{{ include.loc.cta.label | escape }}</a>
+  <meta itemprop="applicationCategory" content="{{ include.p.schema.applicationCategory }}" />
+  <meta itemprop="operatingSystem" content="{{ include.p.schema.operatingSystem }}" />
+</article>

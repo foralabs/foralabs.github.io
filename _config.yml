@@ -1,0 +1,21 @@
+title: Fora Labs
+url: https://forabase.app
+lang: en
+
+org:
+  name: Fora Labs
+  email: hi@forabase.app
+
+# Output clean directory-style URLs (/contact/ rather than /contact.html)
+permalink: pretty
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - README.md
+  - .github

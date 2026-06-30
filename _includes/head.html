@@ -1,0 +1,68 @@
+{%- assign t = site.data.i18n[page.lang] -%}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ page.meta_title }}</title>
+<meta name="description" content="{{ page.meta_description }}" />
+{%- if page.keywords %}
+<meta name="keywords" content="{{ page.keywords }}" />
+{%- endif %}
+<link rel="canonical" href="{{ page.url | absolute_url }}" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ page.url | absolute_url }}" />
+<meta property="og:title" content="{{ page.meta_title }}" />
+<meta property="og:description" content="{{ page.og_description | default: page.meta_description }}" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ page.meta_title }}" />
+<meta name="twitter:description" content="{{ page.twitter_description | default: page.meta_description }}" />
+
+<link rel="alternate" hreflang="en" href="{{ page.en_url | absolute_url }}" />
+<link rel="alternate" hreflang="tr" href="{{ page.tr_url | absolute_url }}" />
+<link rel="alternate" hreflang="x-default" href="{{ page.en_url | absolute_url }}" />
+
+{%- if page.page_type == "home" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": {{ site.org.name | jsonify }},
+  "url": {{ site.url | jsonify }},
+  "description": {{ t.org_description | jsonify }},
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": {{ t.products_label | jsonify }},
+    "itemListElement": [
+      {%- for p in site.data.projects -%}
+      {%- assign loc = p[page.lang] %}
+      {
+        "@type": "SoftwareApplication",
+        "name": {{ loc.name | jsonify }},
+        {% if loc.url %}"url": {{ loc.url | jsonify }},
+        {% endif %}"applicationCategory": {{ p.schema.applicationCategory | jsonify }},
+        {% if p.schema.operatingSystem %}"operatingSystem": {{ p.schema.operatingSystem | jsonify }},
+        {% endif %}"description": {{ loc.schema_description | default: loc.description | jsonify }}
+      }{% unless forloop.last %},{% endunless %}
+      {%- endfor %}
+    ]
+  }
+}
+</script>
+{%- elsif page.page_type == "contact" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": {{ page.meta_title | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "about": {
+    "@type": "Organization",
+    "name": {{ site.org.name | jsonify }},
+    "url": {{ site.url | jsonify }},
+    "email": {{ site.org.email | jsonify }}
+  }
+}
+</script>
+{%- endif %}
+
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />

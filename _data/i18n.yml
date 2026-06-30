@@ -1,0 +1,24 @@
+# Shared UI chrome strings, keyed by locale. Page-specific copy (hero, SEO)
+# lives in each page's front matter; project copy lives in projects.yml.
+en:
+  home_url: /
+  contact_url: /contact/
+  lang_aria: Language
+  org_description: Simple software tools for real work
+  products_label: Products
+  plugins_label: Redmine Plugins
+  features_label: Features
+  contact_label: Contact
+  copyright: © 2025 Fora Labs
+  footer_tagline: Built to last. Nothing more.
+tr:
+  home_url: /tr/
+  contact_url: /tr/iletisim/
+  lang_aria: Dil
+  org_description: İşini gören sade yazılımlar
+  products_label: Ürünler
+  plugins_label: Redmine Eklentileri
+  features_label: Özellikler
+  contact_label: İletişim
+  copyright: © 2025 Fora Labs
+  footer_tagline: Sağlam iş. Fazlası değil.

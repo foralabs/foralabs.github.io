@@ -1,0 +1,8 @@
+{%- assign t = site.data.i18n[page.lang] -%}
+<header>
+  <a class="wordmark" href="{{ t.home_url | relative_url }}">fora labs</a>
+  <nav class="lang-switcher" aria-label="{{ t.lang_aria }}">
+    <a href="{{ page.en_url | relative_url }}"{% if page.lang == 'en' %} aria-current="page"{% endif %}>EN</a>
+    <a href="{{ page.tr_url | relative_url }}"{% if page.lang == 'tr' %} aria-current="page"{% endif %}>TR</a>
+  </nav>
+</header>

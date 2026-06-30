@@ -1,177 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Fora Labs</title>
-  <meta name="description" content="Get in touch with Fora Labs. Questions, feedback, or anything else — drop us a line." />
-  <link rel="canonical" href="https://forabase.app/contact/" />
+---
+layout: default
+permalink: /contact/
+lang: en
+page_type: contact
+show_contact_link: false
+en_url: /contact/
+tr_url: /tr/iletisim/
+hero_title: Get in touch.
+hero_subtitle: Questions, feedback, or anything else — we read every email.
+contact_aria: Contact
+meta_title: Contact — Fora Labs
+meta_description: Get in touch with Fora Labs. Questions, feedback, or anything else — drop us a line.
+og_description: Questions, feedback, or anything else — drop us a line.
+twitter_description: Questions, feedback, or anything else — drop us a line.
+---
+<section class="hero">
+  <h1>{{ page.hero_title | escape }}</h1>
+  <p>{{ page.hero_subtitle | escape }}</p>
+</section>
 
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://forabase.app/contact/" />
-  <meta property="og:title" content="Contact — Fora Labs" />
-  <meta property="og:description" content="Questions, feedback, or anything else — drop us a line." />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Contact — Fora Labs" />
-  <meta name="twitter:description" content="Questions, feedback, or anything else — drop us a line." />
-
-  <link rel="alternate" hreflang="en" href="https://forabase.app/contact/" />
-  <link rel="alternate" hreflang="tr" href="https://forabase.app/tr/iletisim/" />
-  <link rel="alternate" hreflang="x-default" href="https://forabase.app/contact/" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Contact — Fora Labs",
-    "url": "https://forabase.app/contact/",
-    "about": {
-      "@type": "Organization",
-      "name": "Fora Labs",
-      "url": "https://forabase.app",
-      "email": "hi@forabase.app"
-    }
-  }
-  </script>
-
-  <style>
-    :root {
-      --bg: #f9f7f4;
-      --fg: #1a1a1a;
-      --muted: #6b6b6b;
-      --link: #1a1a1a;
-      --link-hover: #555;
-      --border: #e0ddd8;
-      --max: 640px;
-      --font: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-      --mono: ui-monospace, "SF Mono", "Fira Code", monospace;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #111110;
-        --fg: #e8e6e1;
-        --muted: #888;
-        --link: #e8e6e1;
-        --link-hover: #aaa;
-        --border: #2a2a28;
-      }
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { font-size: 17px; }
-
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.7;
-      padding: 3rem 1.5rem 6rem;
-    }
-
-    .wrap { max-width: var(--max); margin: 0 auto; }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 1.25rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .wordmark {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--fg);
-      text-decoration: none;
-    }
-
-    .lang-switcher { display: flex; gap: 0.75rem; align-items: baseline; }
-
-    .lang-switcher a {
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: color 0.15s;
-    }
-
-    .lang-switcher a:hover { color: var(--fg); }
-    .lang-switcher a[aria-current="page"] { color: var(--fg); font-weight: 600; }
-
-    .hero { margin-bottom: 4rem; }
-
-    .hero h1 {
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      font-weight: 700;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-    }
-
-    .hero p { color: var(--muted); font-size: 1rem; max-width: 480px; }
-
-    .contact-email {
-      font-family: var(--mono);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--link);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2px;
-      transition: border-color 0.15s, color 0.15s;
-    }
-
-    .contact-email:hover { color: var(--link-hover); border-color: var(--link-hover); }
-
-    .contact-block { margin-bottom: 4.5rem; }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-  </style>
-</head>
-<body>
-<div class="wrap">
-
-  <header>
-    <a class="wordmark" href="/">fora labs</a>
-    <nav class="lang-switcher" aria-label="Language">
-      <a href="/contact/" aria-current="page">EN</a>
-      <a href="/tr/iletisim/">TR</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <h1>Get in touch.</h1>
-      <p>Questions, feedback, or anything else — we read every email.</p>
-    </section>
-
-    <section class="contact-block" aria-label="Contact">
-      <a class="contact-email" href="mailto:hi@forabase.app">hi@forabase.app</a>
-    </section>
-  </main>
-
-  <footer>
-    <span>© 2025 Fora Labs</span>
-    <span>Built to last. Nothing more.</span>
-  </footer>
-
-</div>
-</body>
-</html>
+<section class="contact-block" aria-label="{{ page.contact_aria }}">
+  <a class="contact-email" href="mailto:{{ site.org.email }}">{{ site.org.email }}</a>
+</section>

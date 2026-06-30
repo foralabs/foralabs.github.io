@@ -1,0 +1,9 @@
+{%- assign t = site.data.i18n[page.lang] -%}
+<footer>
+  {%- if page.show_contact_link %}
+  <span>{{ t.copyright }} · <a href="{{ t.contact_url | relative_url }}">{{ t.contact_label }}</a></span>
+  {%- else %}
+  <span>{{ t.copyright }}</span>
+  {%- endif %}
+  <span>{{ t.footer_tagline }}</span>
+</footer>
