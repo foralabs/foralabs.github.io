@@ -1,9 +1,6 @@
 services:
   dev:
     build: .
-    # Live-reloading Jekyll dev server. --force_polling makes file watching
-    # work reliably across the bind mount on macOS/Windows.
-    command: bundle exec jekyll serve --host 0.0.0.0 --force_polling --livereload
     ports:
       - "4000:4000"   # site
       - "35729:35729" # livereload

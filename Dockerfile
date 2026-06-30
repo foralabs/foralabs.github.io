@@ -1,17 +1,19 @@
 FROM ruby:3.3-slim
 
-# build-essential is needed to compile native gem extensions (e.g. ffi/sass).
+# build-essential compiles native gem extensions (ffi, sass, etc.).
 RUN apt-get update -qq \
   && apt-get install -y --no-install-recommends build-essential \
   && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /srv/jekyll
+# Install Jekyll globally — no Bundler, so the repo's Gemfile/Gemfile.lock
+# (which may be pinned to the host's platform) is never consulted.
+RUN gem install jekyll -v "~> 4.3" --no-document
 
-# Install gems in a layer that only busts when the Gemfile changes.
-COPY Gemfile ./
-RUN bundle install
+# Tells Jekyll not to call Bundler.require on the project Gemfile at runtime.
+ENV JEKYLL_NO_BUNDLER_REQUIRE=true
+
+WORKDIR /srv/jekyll
 
 EXPOSE 4000 35729
 
-CMD ["bundle", "exec", "jekyll", "serve", \
-     "--host", "0.0.0.0", "--force_polling", "--livereload"]
+CMD ["jekyll", "serve", "--host", "0.0.0.0", "--force_polling", "--livereload"]
