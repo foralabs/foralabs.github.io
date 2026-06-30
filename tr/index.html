@@ -45,6 +45,13 @@
           "url": "https://u2qr.com",
           "applicationCategory": "BusinessApplication",
           "description": "Dinamik QR kod oluşturucu"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Adit",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "Redmine 5, Redmine 6",
+          "description": "Redmine 5 ve 6 için kurumsal kimlik doğrulama ve uyumluluk eklentisi — SAML/OIDC SSO, 2FA, SCIM sağlama, denetim kaydı ve erişim politikaları"
         }
       ]
     }
@@ -135,6 +142,36 @@
     .hero p { color: var(--muted); font-size: 1rem; max-width: 480px; }
 
     .products { display: flex; flex-direction: column; gap: 2.5rem; margin-bottom: 4.5rem; }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .plugins { margin-bottom: 4.5rem; }
+
+    .feature-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+      margin-bottom: 1rem;
+      max-width: 420px;
+    }
+
+    .feature-list li {
+      list-style: none;
+      font-size: 0.72rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.1rem 0.6rem;
+      white-space: nowrap;
+    }
 
     .product { border-top: 1px solid var(--border); padding-top: 1.75rem; }
 
@@ -251,6 +288,30 @@
         <meta itemprop="operatingSystem" content="Web" />
       </article>
 
+    </section>
+
+    <section class="plugins" aria-label="Redmine Eklentileri">
+      <p class="section-label">Redmine Eklentileri</p>
+
+      <article class="product" itemscope itemtype="https://schema.org/SoftwareApplication">
+        <div class="product-meta">
+          <span class="product-name" itemprop="name">Adit</span>
+          <span class="product-tag">Redmine 5 &amp; 6 · Ticari</span>
+        </div>
+        <h2>Redmine için kurumsal kimlik doğrulama ve uyumluluk.</h2>
+        <p itemprop="description">Redmine 5 ve 6'ya kurumsal düzeyde erişim kontrolü ekleyen, kendi kendine kurulabilen bir eklenti — tamamı yönetim panelinden yapılandırılır, sunucuyla uğraşmaya gerek yok. SOC 2, ISO 27001 ve GDPR kontrollerine ihtiyaç duyan orta ölçekli BT ve güvenlik ekipleri için.</p>
+        <ul class="feature-list" aria-label="Özellikler">
+          <li>SAML 2.0 SSO</li>
+          <li>OIDC SSO</li>
+          <li>Zorunlu 2FA</li>
+          <li>SCIM 2.0 sağlama</li>
+          <li>Denetim kaydı</li>
+          <li>Erişim politikaları</li>
+        </ul>
+        <a class="product-link" href="/tr/iletisim/" itemprop="url">İletişime geçin →</a>
+        <meta itemprop="applicationCategory" content="SecurityApplication" />
+        <meta itemprop="operatingSystem" content="Redmine 5, Redmine 6" />
+      </article>
     </section>
   </main>
 
