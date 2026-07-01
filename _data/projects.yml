@@ -148,7 +148,7 @@
     schema_description: >-
       Enterprise authentication and compliance plugin for Redmine 5 and 6 —
       SAML/OIDC SSO, 2FA, SCIM provisioning, audit logging, and access policies
-    page_url: /plugins/adit/
+    page_url: /redmine/adit/
     details:
       - >-
         Adit brings the access controls auditors ask for to a Redmine you
@@ -181,7 +181,7 @@
     schema_description: >-
       Redmine 5 ve 6 için kurumsal kimlik doğrulama ve uyumluluk eklentisi —
       SAML/OIDC SSO, 2FA, SCIM sağlama, denetim kaydı ve erişim politikaları
-    page_url: /tr/eklentiler/adit/
+    page_url: /tr/redmine/adit/
     details:
       - >-
         Adit, denetçilerin istediği erişim kontrollerini hâlihazırda
