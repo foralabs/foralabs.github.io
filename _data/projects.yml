@@ -1,9 +1,12 @@
 # Structured project data — single source of truth for both locales.
-# `category`: product | plugin   (controls which section it renders in)
+# `category`: product | plugin   (controls which section/listing it renders in)
 # `external`: true opens the CTA in a new tab; false treats cta.href as an internal path.
 # `schema`:   shared Schema.org SoftwareApplication fields.
-# `en` / `tr`: localized copy. `url` (optional) feeds the JSON-LD OfferCatalog;
-#             `schema_description` (optional) overrides `description` in JSON-LD.
+# `en` / `tr`: localized copy.
+#   `page_url`           internal URL of the dedicated detail page (used by cards + nav)
+#   `url` (optional)     canonical product URL — feeds the JSON-LD OfferCatalog
+#   `schema_description` (optional) overrides `description` in JSON-LD
+#   `details` (optional) longer-form paragraphs shown only on the detail page
 
 - id: keepr
   category: product
@@ -19,9 +22,24 @@
       Track income and expenses, generate simple reports, and keep your books
       clean — no bloated software, no subscription maze.
     schema_description: Simple bookkeeping for small businesses
+    page_url: /products/keepr/
     url: https://keepr.forabase.app
+    details:
+      - >-
+        Keepr is built for people who run a business, not an accounting
+        department. Record what comes in and what goes out, tag it, and get a
+        clear picture of where you stand — in seconds, not spreadsheets.
+      - >-
+        No setup rituals, no chart-of-accounts homework, no features you'll
+        never touch. Just the handful of things you actually do every week,
+        done well.
+    features:
+      - Income & expense tracking
+      - Simple reports
+      - Multi-currency
+      - Export anytime
     cta:
-      label: keepr.forabase.app →
+      label: Open keepr.forabase.app →
       href: https://keepr.forabase.app
   tr:
     name: Keepr
@@ -31,9 +49,24 @@
       Gelirinizi giderinizi kaydedin, basit raporlar alın, hesabınız hep düzenli
       kalsın — karmaşık programlara ve abonelik derdine gerek kalmadan.
     schema_description: Küçük işletmeler için sade ön muhasebe uygulaması
+    page_url: /tr/urunler/keepr/
     url: https://keepr.forabase.app
+    details:
+      - >-
+        Keepr, bir muhasebe departmanı için değil, işini yürüten insanlar için
+        tasarlandı. Geleni gideni kaydedin, etiketleyin ve nerede durduğunuzu
+        saniyeler içinde görün — tablolarla boğuşmadan.
+      - >-
+        Kurulum ayinleri yok, hesap planı ödevi yok, hiç kullanmayacağınız
+        özellikler yok. Sadece her hafta gerçekten yaptığınız birkaç işi,
+        düzgünce.
+    features:
+      - Gelir & gider takibi
+      - Basit raporlar
+      - Çoklu para birimi
+      - İstediğiniz an dışa aktarın
     cta:
-      label: keepr.forabase.app →
+      label: keepr.forabase.app aç →
       href: https://keepr.forabase.app
 
 - id: u2qr
@@ -50,9 +83,23 @@
       Create dynamic QR codes that redirect to any URL. Change the destination
       anytime — the printed code stays the same.
     schema_description: Dynamic QR code generator
+    page_url: /products/u2qr/
     url: https://u2qr.com
+    details:
+      - >-
+        A QR code on a flyer, a menu, or a product label is permanent — until
+        the link behind it changes. U2QR puts a stable code between you and your
+        audience, and lets you repoint it whenever you need to.
+      - >-
+        Run a campaign, fix a typo'd URL, or swap a landing page without
+        reprinting a single thing. Track scans so you know what's working.
+    features:
+      - Editable destinations
+      - Scan analytics
+      - Custom short links
+      - Bulk generation
     cta:
-      label: u2qr.com →
+      label: Open u2qr.com →
       href: https://u2qr.com
   tr:
     name: U2QR
@@ -62,9 +109,25 @@
       Dilediğiniz adrese yönlendiren dinamik QR kodları oluşturun. Yönlendirdiği
       adresi ne zaman isterseniz değiştirin — baskıdaki kod hep aynı kalır.
     schema_description: Dinamik QR kod oluşturucu
+    page_url: /tr/urunler/u2qr/
     url: https://u2qr.com
+    details:
+      - >-
+        Bir broşürdeki, menüdeki ya da ürün etiketindeki QR kod kalıcıdır —
+        arkasındaki bağlantı değişene kadar. U2QR, sizinle hedef kitleniz
+        arasına sabit bir kod koyar ve gerektiğinde onu yeniden yönlendirmenize
+        izin verir.
+      - >-
+        Kampanya yürütün, yanlış yazılmış bir adresi düzeltin ya da açılış
+        sayfasını değiştirin — tek bir şeyi yeniden bastırmadan. Taramaları
+        izleyin, neyin işe yaradığını görün.
+    features:
+      - Düzenlenebilir hedefler
+      - Tarama analizi
+      - Özel kısa bağlantılar
+      - Toplu oluşturma
     cta:
-      label: u2qr.com →
+      label: u2qr.com aç →
       href: https://u2qr.com
 
 - id: adit
@@ -85,6 +148,17 @@
     schema_description: >-
       Enterprise authentication and compliance plugin for Redmine 5 and 6 —
       SAML/OIDC SSO, 2FA, SCIM provisioning, audit logging, and access policies
+    page_url: /plugins/adit/
+    details:
+      - >-
+        Adit brings the access controls auditors ask for to a Redmine you
+        already run. Wire up your identity provider, enforce 2FA, and provision
+        users automatically — all from the admin UI, without touching a config
+        file or restarting a server.
+      - >-
+        Every sensitive action is logged for audit, and access policies let you
+        scope who can do what. It's the difference between "we use Redmine" and
+        "we can pass the security review."
     features:
       - SAML 2.0 SSO
       - OIDC SSO
@@ -107,6 +181,18 @@
     schema_description: >-
       Redmine 5 ve 6 için kurumsal kimlik doğrulama ve uyumluluk eklentisi —
       SAML/OIDC SSO, 2FA, SCIM sağlama, denetim kaydı ve erişim politikaları
+    page_url: /tr/eklentiler/adit/
+    details:
+      - >-
+        Adit, denetçilerin istediği erişim kontrollerini hâlihazırda
+        kullandığınız Redmine'a getirir. Kimlik sağlayıcınızı bağlayın, 2FA'yı
+        zorunlu kılın ve kullanıcıları otomatik sağlayın — tamamı yönetim
+        panelinden, tek bir yapılandırma dosyasına dokunmadan, sunucuyu yeniden
+        başlatmadan.
+      - >-
+        Her hassas işlem denetim için kaydedilir; erişim politikaları kimin neyi
+        yapabileceğini belirlemenizi sağlar. Bu, "Redmine kullanıyoruz" ile
+        "güvenlik denetiminden geçebiliriz" arasındaki farktır.
     features:
       - SAML 2.0 SSO
       - OIDC SSO

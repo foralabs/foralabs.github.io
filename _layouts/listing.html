@@ -1,0 +1,15 @@
+---
+layout: default
+---
+{%- assign t = site.data.i18n[page.lang] -%}
+<section class="hero">
+  <h1>{{ page.hero_title | escape }}</h1>
+  <p>{{ page.hero_subtitle | escape }}</p>
+</section>
+
+{%- assign items = site.data.projects | where: "category", page.category %}
+<section class="products" aria-label="{{ page.hero_title | escape }}">
+  {%- for p in items %}{% assign loc = p[page.lang] %}
+  {%- include project-card.html p=p loc=loc t=t %}
+  {%- endfor %}
+</section>

@@ -37,12 +37,31 @@ body {
 
 header {
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
   border-bottom: 1px solid var(--border);
   padding-bottom: 1.25rem;
   margin-bottom: 3.5rem;
 }
+
+.nav {
+  display: flex;
+  gap: 1.25rem;
+  align-items: baseline;
+  margin-left: auto;
+}
+
+.nav a {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.15s;
+}
+
+.nav a:hover { color: var(--fg); }
+.nav a[aria-current="page"] { color: var(--fg); font-weight: 600; }
 
 .wordmark {
   font-family: var(--mono);
@@ -113,6 +132,14 @@ header {
   margin-bottom: 0.5rem;
   line-height: 1.3;
 }
+
+.product h2 a {
+  color: var(--fg);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.product h2 a:hover { color: var(--link-hover); }
 
 .product p {
   color: var(--muted);
@@ -197,3 +224,74 @@ footer {
   flex-wrap: wrap;
   gap: 0.5rem;
 }
+
+/* ---- Product / plugin detail pages ---- */
+
+.back-link {
+  margin-bottom: 2rem;
+  font-size: 0.8rem;
+}
+
+.back-link a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.back-link a:hover { color: var(--fg); }
+
+.product-detail { margin-bottom: 4.5rem; }
+
+.product-detail .product-meta { margin-bottom: 0.85rem; }
+
+.detail-heading {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.detail-lede {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 480px;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--fg);
+  text-decoration: none;
+  padding: 0.6rem 1.1rem;
+  border-radius: 6px;
+  transition: opacity 0.15s;
+}
+
+.cta-button:hover { opacity: 0.85; }
+
+.detail-body {
+  margin-top: 3rem;
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+}
+
+.detail-body p {
+  color: var(--fg);
+  font-size: 0.98rem;
+  max-width: 540px;
+  margin-bottom: 1.25rem;
+}
+
+.detail-body p:last-child { margin-bottom: 0; }
+
+.detail-features {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+}
+
+.detail-features .section-label { margin-bottom: 1rem; }

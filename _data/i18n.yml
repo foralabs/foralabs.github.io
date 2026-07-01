@@ -2,23 +2,35 @@
 # lives in each page's front matter; project copy lives in projects.yml.
 en:
   home_url: /
+  products_url: /products/
+  plugins_url: /redmine/
   contact_url: /contact/
   lang_aria: Language
+  nav_aria: Primary
   org_description: Simple software tools for real work
   products_label: Products
   plugins_label: Redmine Plugins
   features_label: Features
+  learn_more: Learn more →
+  back_label: ← All products
+  back_plugins_label: ← All plugins
   contact_label: Contact
   copyright: © 2025 Fora Labs
   footer_tagline: Built to last. Nothing more.
 tr:
   home_url: /tr/
+  products_url: /tr/urunler/
+  plugins_url: /tr/redmine/
   contact_url: /tr/iletisim/
   lang_aria: Dil
+  nav_aria: Ana menü
   org_description: İşini gören sade yazılımlar
   products_label: Ürünler
   plugins_label: Redmine Eklentileri
   features_label: Özellikler
+  learn_more: Daha fazla →
+  back_label: ← Tüm ürünler
+  back_plugins_label: ← Tüm eklentiler
   contact_label: İletişim
   copyright: © 2025 Fora Labs
-  footer_tagline: Sağlam iş. Fazlası değil.
+  footer_tagline: Sade yazılımlar.

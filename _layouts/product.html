@@ -1,0 +1,43 @@
+---
+layout: default
+---
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign p = site.data.projects | where: "id", page.project_id | first -%}
+{%- assign loc = p[page.lang] -%}
+{%- if p.category == "plugin" %}{% assign back_url = t.plugins_url %}{% assign back_label = t.back_plugins_label %}{% else %}{% assign back_url = t.products_url %}{% assign back_label = t.back_label %}{% endif -%}
+
+<p class="back-link"><a href="{{ back_url | relative_url }}">{{ back_label }}</a></p>
+
+<article class="product-detail" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <div class="product-meta">
+    <span class="product-name" itemprop="name">{{ loc.name | escape }}</span>
+    <span class="product-tag">{{ loc.tag | escape }}</span>
+  </div>
+
+  <h1 class="detail-heading">{{ loc.heading | escape }}</h1>
+  <p class="detail-lede" itemprop="description">{{ loc.description | escape }}</p>
+
+  <a class="cta-button" href="{% if p.external %}{{ loc.cta.href }}{% else %}{{ loc.cta.href | relative_url }}{% endif %}"{% if p.external %} target="_blank" rel="noopener"{% endif %} itemprop="url">{{ loc.cta.label | escape }}</a>
+
+  {%- if loc.details %}
+  <div class="detail-body">
+    {%- for para in loc.details %}
+    <p>{{ para | escape }}</p>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+
+  {%- if loc.features %}
+  <section class="detail-features">
+    <p class="section-label">{{ t.features_label }}</p>
+    <ul class="feature-list" aria-label="{{ t.features_label }}">
+      {%- for f in loc.features %}
+      <li>{{ f | escape }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+
+  <meta itemprop="applicationCategory" content="{{ p.schema.applicationCategory }}" />
+  <meta itemprop="operatingSystem" content="{{ p.schema.operatingSystem }}" />
+</article>

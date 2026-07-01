@@ -63,6 +63,25 @@
   }
 }
 </script>
+{%- elsif page.page_type == "product" %}
+{%- assign p = site.data.projects | where: "id", page.project_id | first %}
+{%- assign loc = p[page.lang] %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": {{ loc.name | jsonify }},
+  {% if loc.url %}"url": {{ loc.url | jsonify }},
+  {% endif %}"applicationCategory": {{ p.schema.applicationCategory | jsonify }},
+  {% if p.schema.operatingSystem %}"operatingSystem": {{ p.schema.operatingSystem | jsonify }},
+  {% endif %}"description": {{ loc.schema_description | default: loc.description | jsonify }},
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.org.name | jsonify }},
+    "url": {{ site.url | jsonify }}
+  }
+}
+</script>
 {%- endif %}
 
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
