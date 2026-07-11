@@ -40,15 +40,17 @@ en:
       - title: OpenID Connect
         desc: Authenticate Redmine users through standards-based OpenID Connect providers.
       - title: Enforced 2FA
-        desc: Apply two-factor authentication requirements based on your organization's access policies.
+        desc: Require two-factor authentication globally or for specific groups or roles, layered on Redmine's built-in 2FA. Optionally accept IdP-asserted MFA as satisfying the requirement for that session.
       - title: Optional auto-registration
         desc: Optionally auto-register external users in Redmine the first time they sign in through SSO, gated by a login check page and your access policies.
       - title: Access policies
-        desc: Manage authentication and access requirements centrally from the Redmine administration interface.
+        desc: Enforce SSO-only login, IP allow and deny lists, and idle and absolute session timeouts — all managed centrally from the Redmine administration interface.
       - title: Automated SCIM 2.0 provisioning
         desc: Let identity providers such as Microsoft Entra ID and Okta create, update and deactivate Redmine users and keep group memberships in sync over a standards-compliant SCIM 2.0 API.
       - title: Audit logging
-        desc: Record identity, authentication and administration events for operational visibility and security reviews.
+        desc: Record every identity, authentication and administration event in an append-only log with a filterable viewer, CSV export and configurable retention.
+      - title: Emergency access
+        desc: Issue a one-time, time-limited recovery token to sign in locally if SSO is ever misconfigured or password login is disabled — so administrators are never locked out.
       - title: Administration interface
         desc: Configure identity providers and security policies directly from Redmine without editing deployment configuration.
 
@@ -102,8 +104,10 @@ en:
     body: >-
       Help your Redmine deployment address common identity, access-control and
       audit requirements during security reviews. Every identity,
-      authentication and administration event is recorded so you can
-      demonstrate who did what, and when.
+      authentication and administration event is recorded in an append-only log
+      you can filter, export to CSV and retain for a configurable period, so you
+      can demonstrate who did what, and when. Provider secrets — SAML private
+      keys and OIDC client secrets — are encrypted at rest.
 
   pricing:
     label: Pricing
@@ -139,8 +143,7 @@ en:
           - 1 staging or test instance
           - All Adit features
           - Updates
-          - Priority support
-          - 1-hour remote installation or onboarding call
+          - Standard email support
       - name: Enterprise
         users: Up to 1,000 active users
         price: "€1,490"
@@ -152,7 +155,7 @@ en:
           - All Adit features
           - Updates
           - Priority support
-          - 2-hour remote installation or onboarding call
+          - 1-hour remote installation or onboarding call
           - Enterprise procurement and contract support
       - name: Enterprise Plus
         users: More than 1,000 users
@@ -230,6 +233,30 @@ en:
         a: Adit works with standards-compliant SAML 2.0 and OpenID Connect identity providers.
       - q: Is Adit suitable for self-hosted Redmine?
         a: Yes. Adit is designed for self-hosted Redmine 5 and 6 installations.
+      - q: How does Adit store SAML and OIDC secrets?
+        a: >-
+          SAML SP private keys and OIDC client secrets are encrypted at rest
+          using ActiveRecord Encryption (AES-256-GCM). If your Redmine already
+          runs its own ActiveRecord Encryption keyring, Adit uses it. Otherwise,
+          set three environment variables before saving provider secrets —
+          ADIT_AR_ENCRYPTION_PRIMARY_KEY, ADIT_AR_ENCRYPTION_DETERMINISTIC_KEY
+          and ADIT_AR_ENCRYPTION_KEY_DERIVATION_SALT. Adit fails closed: if the
+          keys are absent it will not store secrets in plaintext, and Redmine
+          keeps running while the admin screen flags the missing configuration.
+      - q: Can I restrict Redmine to SSO only, or limit logins by IP?
+        a: >-
+          Yes. Access policies can enforce SSO-only login (optionally hiding the
+          password form), disable native password login, and apply IP allow and
+          deny lists to interactive logins, with a separate allow list for the
+          SCIM endpoint. Idle and absolute session timeouts are configurable as
+          well.
+      - q: What happens if SSO is misconfigured and no one can log in?
+        a: >-
+          Adit includes an emergency escape hatch: an administrator can issue a
+          one-time, time-limited recovery token (valid for one hour by default)
+          that allows a local sign-in even when SSO-only mode or disabled
+          password login would otherwise block access. The token is stored only
+          as a hash and expires automatically.
       - q: What is included in the annual licence?
         a: Every licence includes all Adit features, product updates, the support tier for your plan, one production instance and at least one staging or test installation.
       - q: Is staging usage included?
@@ -276,15 +303,17 @@ tr:
       - title: OpenID Connect
         desc: Redmine kullanıcılarının standartlara uyumlu OpenID Connect sağlayıcıları üzerinden giriş yapmasını sağlayın.
       - title: Zorunlu 2FA
-        desc: Kuruluşunuzun erişim politikalarına göre iki faktörlü kimlik doğrulama gereksinimleri uygulayın.
+        desc: İki faktörlü kimlik doğrulamayı Redmine'ın yerleşik 2FA altyapısı üzerine katmanlayarak genel olarak ya da belirli gruplar veya roller için zorunlu kılın. İsteğe bağlı olarak, kimlik sağlayıcının doğruladığı MFA'yı o oturum için gereksinimi karşılamış sayabilirsiniz.
       - title: İsteğe bağlı otomatik kayıt
         desc: Harici kullanıcıları, SSO ile ilk kez giriş yaptıklarında bir giriş denetimi sayfası ve erişim politikalarınız aracılığıyla isteğe bağlı olarak Redmine'a otomatik kaydedin.
       - title: Erişim politikaları
-        desc: Kimlik doğrulama ve erişim gereksinimlerini Redmine yönetim panelinden merkezi olarak yönetin.
+        desc: Yalnızca SSO ile girişi, IP izin ve ret listelerini, ayrıca boşta kalma ve mutlak oturum zaman aşımlarını Redmine yönetim panelinden merkezi olarak zorunlu kılın.
       - title: Otomatik SCIM 2.0 ile kullanıcı sağlama
         desc: Microsoft Entra ID ve Okta gibi kimlik sağlayıcıların, standartlara uyumlu bir SCIM 2.0 API üzerinden Redmine kullanıcılarını oluşturmasına, güncellemesine ve devre dışı bırakmasına, ayrıca grup üyeliklerini eşitlemesine olanak tanıyın.
       - title: Audit log
-        desc: Kimlik, kimlik doğrulama ve yönetim olaylarını operasyonel görünürlük ve güvenlik incelemeleri için kaydedin.
+        desc: Her kimlik, kimlik doğrulama ve yönetim olayını; filtrelenebilir bir görüntüleyici, CSV dışa aktarma ve yapılandırılabilir saklama süresiyle birlikte yalnızca eklemeli (append-only) bir kayda yazın.
+      - title: Acil durum erişimi
+        desc: SSO yanlış yapılandırılırsa veya parola ile giriş devre dışıysa yerel olarak giriş yapmak için tek kullanımlık, süreli bir kurtarma jetonu oluşturun — böylece yöneticiler asla kilitli kalmaz.
       - title: Yönetim paneli
         desc: Kimlik sağlayıcılarını ve güvenlik politikalarını deployment yapılandırmasını değiştirmeden doğrudan Redmine üzerinden yönetin.
 
@@ -338,8 +367,11 @@ tr:
     body: >-
       Redmine kurulumunuzun güvenlik incelemelerinde karşılaşılan yaygın kimlik,
       erişim kontrolü ve kayıt gereksinimlerini karşılamasına yardımcı olun. Her
-      kimlik, kimlik doğrulama ve yönetim olayı kaydedilir; böylece kimin, neyi,
-      ne zaman yaptığını gösterebilirsiniz.
+      kimlik, kimlik doğrulama ve yönetim olayı; filtreleyebileceğiniz, CSV'ye
+      aktarabileceğiniz ve yapılandırılabilir bir süre boyunca saklayabileceğiniz
+      yalnızca eklemeli bir kayda yazılır; böylece kimin, neyi, ne zaman
+      yaptığını gösterebilirsiniz. Sağlayıcı sırları — SAML özel anahtarları ve
+      OIDC istemci sırları — bekleme durumunda şifrelenir.
 
   pricing:
     label: Fiyatlandırma
@@ -375,8 +407,7 @@ tr:
           - 1 staging veya test kurulumu
           - Tüm Adit özellikleri
           - Güncellemeler
-          - Öncelikli destek
-          - 1 saatlik uzaktan kurulum veya başlangıç görüşmesi
+          - Standart e-posta desteği
       - name: Enterprise
         users: 1.000 aktif kullanıcıya kadar
         price: "€1.490"
@@ -388,7 +419,7 @@ tr:
           - Tüm Adit özellikleri
           - Güncellemeler
           - Öncelikli destek
-          - 2 saatlik uzaktan kurulum veya başlangıç görüşmesi
+          - 1 saatlik uzaktan kurulum veya başlangıç görüşmesi
           - Kurumsal satın alma ve sözleşme desteği
       - name: Enterprise Plus
         users: 1.000'den fazla kullanıcı
@@ -465,6 +496,32 @@ tr:
         a: Adit, standartlara uyumlu SAML 2.0 ve OpenID Connect kimlik sağlayıcılarıyla çalışır.
       - q: Adit, kendi sunucusunda barındırılan (self-hosted) Redmine için uygun mu?
         a: Evet. Adit, kendi sunucunuzda barındırdığınız Redmine 5 ve 6 kurulumları için tasarlanmıştır.
+      - q: Adit, SAML ve OIDC sırlarını nasıl saklar?
+        a: >-
+          SAML SP özel anahtarları ve OIDC istemci sırları, ActiveRecord
+          Encryption (AES-256-GCM) ile bekleme durumunda şifrelenir. Redmine'ınız
+          zaten kendi ActiveRecord Encryption anahtarlığını çalıştırıyorsa Adit
+          onu kullanır. Aksi hâlde, sağlayıcı sırlarını kaydetmeden önce üç ortam
+          değişkenini ayarlayın — ADIT_AR_ENCRYPTION_PRIMARY_KEY,
+          ADIT_AR_ENCRYPTION_DETERMINISTIC_KEY ve
+          ADIT_AR_ENCRYPTION_KEY_DERIVATION_SALT. Adit güvenli tarafta kalır:
+          anahtarlar yoksa sırları düz metin olarak saklamaz; Redmine çalışmaya
+          devam ederken yönetim ekranı eksik yapılandırmayı bildirir.
+      - q: Redmine'ı yalnızca SSO ile sınırlayabilir veya girişleri IP'ye göre kısıtlayabilir miyim?
+        a: >-
+          Evet. Erişim politikaları; yalnızca SSO ile girişi zorunlu kılabilir
+          (isteğe bağlı olarak parola formunu gizleyerek), yerel parola ile
+          girişi devre dışı bırakabilir ve etkileşimli girişlere IP izin ve ret
+          listeleri uygulayabilir; SCIM uç noktası için ayrı bir izin listesi
+          bulunur. Boşta kalma ve mutlak oturum zaman aşımları da yapılandırılabilir.
+      - q: SSO yanlış yapılandırılırsa ve kimse giriş yapamazsa ne olur?
+        a: >-
+          Adit bir acil durum kaçış yolu içerir: bir yönetici, tek kullanımlık ve
+          süreli bir kurtarma jetonu (varsayılan olarak bir saat geçerli)
+          oluşturabilir; bu jeton, yalnızca SSO modu veya devre dışı bırakılmış
+          parola girişi erişimi engelleyecek olsa bile yerel girişe izin verir.
+          Jeton yalnızca bir özet (hash) olarak saklanır ve otomatik olarak
+          süresi dolar.
       - q: Yıllık lisansa neler dahil?
         a: Her lisansa tüm Adit özellikleri, ürün güncellemeleri, planınıza ait destek seviyesi, bir production kurulumu ve en az bir staging veya test kurulumu dahildir.
       - q: Staging kullanımı dahil mi?
