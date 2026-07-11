@@ -11,9 +11,46 @@ meta_title: Contact
 meta_description: Get in touch with Fora Labs. Questions, feedback, or anything else — drop us a line.
 og_description: Questions, feedback, or anything else — drop us a line.
 twitter_description: Questions, feedback, or anything else — drop us a line.
+form_subject: New message from forabase.app
+form_name_label: Name
+form_email_label: Email
+form_message_label: Message
+form_submit: Send message
+form_sending: Sending…
+form_success: Thanks — your message is on its way. We'll get back to you soon.
+form_error: Something went wrong. Please email us directly at hi@forabase.app.
+form_fallback: Prefer email? Reach us at
 ---
 {%- include hero.html %}
 
 <section class="contact-block" aria-label="{{ page.contact_aria }}">
-  <a class="contact-email" href="mailto:{{ site.org.email }}">{{ site.org.email }}</a>
+  <form class="contact-form" data-web3form
+        data-sending="{{ page.form_sending }}"
+        data-success="{{ page.form_success }}"
+        data-error="{{ page.form_error }}">
+    <input type="hidden" name="access_key" value="{{ site.web3forms_key }}" />
+    <input type="hidden" name="subject" value="{{ page.form_subject }}" />
+    <input type="hidden" name="from_name" value="{{ site.org.name }}" />
+    <input type="checkbox" name="botcheck" class="form-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <div class="plugin-field">
+      <label for="c-name">{{ page.form_name_label }}</label>
+      <input type="text" id="c-name" name="name" required />
+    </div>
+    <div class="plugin-field">
+      <label for="c-email">{{ page.form_email_label }}</label>
+      <input type="email" id="c-email" name="email" required />
+    </div>
+    <div class="plugin-field">
+      <label for="c-message">{{ page.form_message_label }}</label>
+      <textarea id="c-message" name="message" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="cta-button">{{ page.form_submit }}</button>
+    <p class="form-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <p class="contact-fallback">{{ page.form_fallback }}
+    <a class="contact-email" href="mailto:{{ site.org.email }}">{{ site.org.email }}</a>
+  </p>
 </section>
+
+<script src="{{ '/assets/js/request-form.js' | relative_url }}"></script>

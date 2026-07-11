@@ -181,10 +181,12 @@ en:
   form:
     label: Request a demo or licence
     intro: >-
-      Tell us about your Redmine deployment and we'll get back to you. This
-      form opens your email client with the details pre-filled.
+      Tell us about your Redmine deployment and we'll get back to you.
     subject: Adit demo / licence request
     submit: Send request
+    sending: Sending…
+    success: Thanks — your request is in. We'll be in touch shortly.
+    error: Something went wrong. Please email us directly at hi@forabase.app.
     fields:
       name: Name
       email: Work email
@@ -410,10 +412,12 @@ tr:
   form:
     label: Demo veya lisans talep edin
     intro: >-
-      Redmine kurulumunuzdan bahsedin, size geri dönelim. Bu form, bilgiler önceden
-      doldurulmuş olarak e-posta uygulamanızı açar.
+      Redmine kurulumunuzdan bahsedin, size geri dönelim.
     subject: Adit demo / lisans talebi
     submit: Talebi gönder
+    sending: Gönderiliyor…
+    success: Teşekkürler — talebiniz bize ulaştı. En kısa sürede dönüş yapacağız.
+    error: Bir şeyler ters gitti. Lütfen doğrudan hi@forabase.app adresine yazın.
     fields:
       name: Ad soyad
       email: İş e-postası

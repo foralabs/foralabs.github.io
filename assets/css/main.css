@@ -205,6 +205,32 @@ header {
 
 .contact-block { margin-bottom: 4.5rem; }
 
+/* Contact form (reuses .plugin-field controls) */
+.contact-form {
+  display: grid;
+  gap: 1.1rem;
+  max-width: 520px;
+  margin-bottom: 1.75rem;
+}
+.contact-form button { border: none; cursor: pointer; justify-self: start; }
+.contact-fallback { color: var(--muted); font-size: 0.92rem; }
+.contact-fallback .contact-email { font-size: 0.92rem; }
+
+/* Honeypot — hidden from users, tempting to bots */
+.form-hp {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* Inline submit status */
+.form-status { font-size: 0.9rem; margin: 0; min-height: 1.2em; }
+.form-status:empty { display: none; }
+.form-status--ok { color: var(--link); }
+.form-status--err { color: #c0392b; }
+
 footer a {
   color: var(--muted);
   text-decoration: none;

@@ -165,15 +165,18 @@ layout: default
   <section class="plugin-section" id="request">
     <p class="section-label">{{ a.form.label }}</p>
     <p class="plugin-body">{{ a.form.intro }}</p>
-    <form class="plugin-form" id="plugin-request-form" action="mailto:{{ site.org.email }}" method="post" enctype="text/plain" data-to="{{ site.org.email }}" data-subject="{{ a.form.subject }}">
+    <form class="plugin-form" id="plugin-request-form" data-web3form data-sending="{{ a.form.sending }}" data-success="{{ a.form.success }}" data-error="{{ a.form.error }}">
+      <input type="hidden" name="access_key" value="{{ site.web3forms_key }}" />
       <input type="hidden" name="subject" value="{{ a.form.subject }}" />
+      <input type="hidden" name="from_name" value="{{ a.form.subject }}" />
+      <input type="checkbox" name="botcheck" class="form-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
       <div class="plugin-field">
         <label for="f-name">{{ a.form.fields.name }}</label>
-        <input type="text" id="f-name" name="{{ a.form.fields.name }}" required />
+        <input type="text" id="f-name" name="name" required />
       </div>
       <div class="plugin-field">
         <label for="f-email">{{ a.form.fields.email }}</label>
-        <input type="email" id="f-email" name="{{ a.form.fields.email }}" required />
+        <input type="email" id="f-email" name="email" required />
       </div>
       <div class="plugin-field">
         <label for="f-company">{{ a.form.fields.company }}</label>
@@ -200,6 +203,7 @@ layout: default
         <textarea id="f-message" name="{{ a.form.fields.message }}" rows="4"></textarea>
       </div>
       <button type="submit" class="cta-button">{{ a.form.submit }}</button>
+      <p class="form-status plugin-field--full" role="status" aria-live="polite"></p>
     </form>
   </section>
   {%- endif %}

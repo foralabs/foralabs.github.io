@@ -6,6 +6,10 @@ org:
   name: Fora Labs
   email: hi@forabase.app
 
+# Web3Forms access key — powers the contact & plugin request forms.
+# Get a free key at https://web3forms.com (tied to the delivery inbox).
+web3forms_key: f0193b8f-ab19-427b-9e70-19c222ca09ef
+
 # Output clean directory-style URLs (/contact/ rather than /contact.html)
 permalink: pretty
 
