@@ -1,5 +1,5 @@
 # Adit sales-page copy — single source of truth for both locales.
-# Consumed by _layouts/adit.html. Keep claims here verifiable:
+# Consumed by _layouts/plugin.html (via project_id). Keep claims here verifiable:
 # Adit is a SCIM 2.0 *server* (exposes the Redmine user directory), never a
 # SCIM client. Do not add provisioning / sync / write-support language, named
 # identity providers, version numbers, ratings, or customer counts that are

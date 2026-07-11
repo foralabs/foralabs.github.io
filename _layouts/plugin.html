@@ -1,0 +1,235 @@
+---
+layout: default
+---
+{%- comment %}
+  Generic Redmine-plugin detail page. Fully data-driven: the plugin is chosen by
+  the stub's `project_id`, its registry/schema row comes from projects.yml, and
+  its page copy from _data/plugins/<id>.yml. Every section below hero is optional
+  — present the data and it renders, omit it and it disappears — so a new plugin
+  is just a data file + two stubs, no new layout/CSS/JS.
+{%- endcomment -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign p = site.data.projects | where: "id", page.project_id | first -%}
+{%- assign loc = p[page.lang] -%}
+{%- assign a = site.data.plugins[page.project_id][page.lang] -%}
+
+<p class="back-link"><a href="{{ t.plugins_url | relative_url }}">{{ t.back_plugins_label }}</a></p>
+
+<article class="plugin" itemscope itemtype="https://schema.org/SoftwareApplication">
+
+  {%- comment %} 1. Hero {%- endcomment %}
+  <header class="plugin-hero">
+    <p class="plugin-category">{{ a.category }}</p>
+    <h1 class="detail-heading" itemprop="name">{{ a.hero.heading }}</h1>
+    <p class="detail-lede" itemprop="description">{{ a.hero.description }}</p>
+    <div class="plugin-cta-row">
+      <a class="cta-button" href="#request">{{ a.cta_demo }}</a>
+    </div>
+    <meta itemprop="applicationCategory" content="{{ p.schema.applicationCategory }}" />
+    <meta itemprop="operatingSystem" content="{{ p.schema.operatingSystem }}" />
+  </header>
+
+  {%- comment %} 2. Product & security summary {%- endcomment %}
+  {%- if a.summary %}
+  <section class="plugin-section">
+    <p class="section-label">{{ a.summary.label }}</p>
+    <p class="plugin-body">{{ a.summary.body }}</p>
+  </section>
+  {%- endif %}
+
+  {%- comment %} 3. Key features {%- endcomment %}
+  {%- if a.features %}
+  <section class="plugin-section">
+    <p class="section-label">{{ a.features.label }}</p>
+    <div class="plugin-feature-grid">
+      {%- for f in a.features.items %}
+      <div class="plugin-feature">
+        <h3>{{ f.title }}</h3>
+        <p>{{ f.desc }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endif %}
+
+  {%- comment %} 4. Product screenshots {%- endcomment %}
+  {%- if a.screenshots %}
+  <section class="plugin-section">
+    <p class="section-label">{{ a.screenshots.label }}</p>
+    <div class="plugin-shot-grid">
+      {%- for s in a.screenshots.items %}
+      {%- assign shot_src = '/assets/img/' | append: page.project_id | append: '/' | append: s.img %}
+      <figure class="plugin-shot">
+        <a href="{{ shot_src | relative_url }}" target="_blank" rel="noopener">
+          <img src="{{ shot_src | relative_url }}" alt="{{ loc.name | escape }} — {{ s.caption | escape }}" loading="lazy" />
+        </a>
+        <figcaption>{{ s.caption }}</figcaption>
+      </figure>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endif %}
+
+  {%- comment %} 5. SCIM explanation {%- endcomment %}
+  {%- if a.scim %}
+  <section class="plugin-section plugin-highlight">
+    <p class="section-label">{{ a.scim.label }}</p>
+    <h2>{{ a.scim.heading }}</h2>
+    <p class="plugin-body">{{ a.scim.body }}</p>
+  </section>
+  {%- endif %}
+
+  {%- comment %} 6. Compatibility {%- endcomment %}
+  {%- if a.compat %}
+  <section class="plugin-section">
+    <p class="section-label">{{ a.compat.label }}</p>
+    <h2>{{ a.compat.heading }}</h2>
+    <p class="plugin-body">{{ a.compat.body }}</p>
+    <p class="plugin-subtle-label">{{ a.compat.versions_label }}</p>
+    <ul class="feature-list">
+      {%- for v in a.compat.versions %}
+      <li>{{ v }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+
+  {%- comment %} 7. Security & audit {%- endcomment %}
+  {%- if a.security %}
+  <section class="plugin-section">
+    <p class="section-label">{{ a.security.label }}</p>
+    <h2>{{ a.security.heading }}</h2>
+    <p class="plugin-body">{{ a.security.body }}</p>
+  </section>
+  {%- endif %}
+
+  {%- comment %} 8. Pricing {%- endcomment %}
+  {%- if a.pricing %}
+  <section class="plugin-section" id="pricing">
+    <p class="section-label">{{ a.pricing.label }}</p>
+    <h2>{{ a.pricing.heading }}</h2>
+    <p class="plugin-body">{{ a.pricing.intro }}</p>
+
+    <p class="plugin-launch">{{ a.pricing.launch.label }}</p>
+
+    <div class="plugin-plans">
+      {%- for plan in a.pricing.plans %}
+      <div class="plugin-plan{% if plan.highlighted %} plugin-plan--featured{% endif %}">
+        {%- if plan.highlighted %}<span class="plugin-plan-badge">{{ a.pricing.highlight_label }}</span>{% endif %}
+        <h3 class="plugin-plan-name">{{ plan.name }}</h3>
+        <p class="plugin-plan-users">{{ plan.users }}</p>
+        <p class="plugin-plan-price">
+          {%- if plan.launch_price and plan.launch_price != "" %}
+          <span class="plugin-plan-amount">{{ plan.launch_price }}</span>
+          <span class="plugin-plan-period">{{ a.pricing.period }} · {{ a.pricing.first_year }}</span>
+          <span class="plugin-plan-renews">{{ a.pricing.renews_at }} {{ plan.price }} {{ a.pricing.period }}</span>
+          {%- else %}
+          <span class="plugin-plan-amount">{{ plan.price }}</span>
+          {%- if plan.price contains "€" %}<span class="plugin-plan-period">{{ a.pricing.period }}</span>{% endif %}
+          {%- endif %}
+        </p>
+        <ul class="plugin-plan-features">
+          {%- for pf in plan.features %}
+          <li>{{ pf }}</li>
+          {%- endfor %}
+        </ul>
+        {%- if plan.cta %}
+        <a class="cta-button plugin-plan-cta" href="#request">{{ a.cta_contact }}</a>
+        {%- endif %}
+      </div>
+      {%- endfor %}
+    </div>
+
+    <p class="plugin-note">{{ a.pricing.launch.note }}</p>
+  </section>
+  {%- endif %}
+
+  {%- comment %} 9. Add-on services {%- endcomment %}
+  {%- if a.addons %}
+  <section class="plugin-section">
+    <p class="section-label">{{ a.addons.label }}</p>
+    <p class="plugin-body">{{ a.addons.intro }}</p>
+    <ul class="plugin-addons">
+      {%- for item in a.addons.items %}
+      <li>
+        <span class="plugin-addon-name">{{ item.name }}</span>
+        <span class="plugin-addon-price">{{ item.price }}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+
+  {%- comment %} 10. Demo / licence request form {%- endcomment %}
+  {%- if a.form %}
+  <section class="plugin-section" id="request">
+    <p class="section-label">{{ a.form.label }}</p>
+    <p class="plugin-body">{{ a.form.intro }}</p>
+    <form class="plugin-form" id="plugin-request-form" action="mailto:{{ site.org.email }}" method="post" enctype="text/plain" data-to="{{ site.org.email }}" data-subject="{{ a.form.subject }}">
+      <input type="hidden" name="subject" value="{{ a.form.subject }}" />
+      <div class="plugin-field">
+        <label for="f-name">{{ a.form.fields.name }}</label>
+        <input type="text" id="f-name" name="{{ a.form.fields.name }}" required />
+      </div>
+      <div class="plugin-field">
+        <label for="f-email">{{ a.form.fields.email }}</label>
+        <input type="email" id="f-email" name="{{ a.form.fields.email }}" required />
+      </div>
+      <div class="plugin-field">
+        <label for="f-company">{{ a.form.fields.company }}</label>
+        <input type="text" id="f-company" name="{{ a.form.fields.company }}" />
+      </div>
+      <div class="plugin-field">
+        <label for="f-version">{{ a.form.fields.version }}</label>
+        <input type="text" id="f-version" name="{{ a.form.fields.version }}" />
+      </div>
+      <div class="plugin-field">
+        <label for="f-users">{{ a.form.fields.users }}</label>
+        <input type="text" id="f-users" name="{{ a.form.fields.users }}" />
+      </div>
+      <fieldset class="plugin-field plugin-field--full">
+        <legend>{{ a.form.fields.interest }}</legend>
+        <div class="plugin-checks">
+          {%- for opt in a.form.interests %}
+          <label class="plugin-check"><input type="checkbox" name="{{ a.form.fields.interest }}" value="{{ opt }}" /> {{ opt }}</label>
+          {%- endfor %}
+        </div>
+      </fieldset>
+      <div class="plugin-field plugin-field--full">
+        <label for="f-message">{{ a.form.fields.message }}</label>
+        <textarea id="f-message" name="{{ a.form.fields.message }}" rows="4"></textarea>
+      </div>
+      <button type="submit" class="cta-button">{{ a.form.submit }}</button>
+    </form>
+  </section>
+  {%- endif %}
+
+  {%- comment %} 11. FAQ {%- endcomment %}
+  {%- if a.faq %}
+  <section class="plugin-section">
+    <p class="section-label">{{ a.faq.label }}</p>
+    <div class="plugin-faq">
+      {%- for item in a.faq.items %}
+      <details class="plugin-faq-item">
+        <summary>{{ item.q }}</summary>
+        <p>{{ item.a }}</p>
+      </details>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endif %}
+
+  {%- comment %} 12. Final CTA {%- endcomment %}
+  {%- if a.final %}
+  <section class="plugin-final">
+    <h2>{{ a.final.heading }}</h2>
+    <p>{{ a.final.body }}</p>
+    <a class="cta-button" href="#request">{{ a.cta_demo }}</a>
+  </section>
+  {%- endif %}
+
+</article>
+
+{%- if a.form %}
+<script src="{{ '/assets/js/request-form.js' | relative_url }}"></script>
+{%- endif %}

@@ -6,7 +6,7 @@
     <a href="{{ t.plugins_url | relative_url }}"{% if page.nav_section == 'plugins' %} aria-current="page"{% endif %}>{{ t.plugins_label }}</a>
   </nav>
   <nav class="lang-switcher" aria-label="{{ t.lang_aria }}">
-    <a href="{{ page.en_url | relative_url }}"{% if page.lang == 'en' %} aria-current="page"{% endif %}>EN</a>
-    <a href="{{ page.tr_url | relative_url }}"{% if page.lang == 'tr' %} aria-current="page"{% endif %}>TR</a>
+    <a href="{{ en_url | relative_url }}"{% if page.lang == 'en' %} aria-current="page"{% endif %}>EN</a>
+    <a href="{{ tr_url | relative_url }}"{% if page.lang == 'tr' %} aria-current="page"{% endif %}>TR</a>
   </nav>
 </header>

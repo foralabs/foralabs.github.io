@@ -1,3 +1,21 @@
+{%- comment %}
+  Resolve this page's URL in both locales, for hreflang (head) + the language
+  switcher (header). Product/plugin pages are 1:1 with a projects.yml record, so
+  both URLs derive from there — the single source of truth. Other pages state
+  only the *alternate* locale's URL in front matter; this page's own URL is
+  page.url. Assignments here are visible to the includes below.
+{%- endcomment -%}
+{%- if page.project_id -%}
+  {%- assign _proj = site.data.projects | where: "id", page.project_id | first -%}
+  {%- assign en_url = _proj.en.page_url -%}
+  {%- assign tr_url = _proj.tr.page_url -%}
+{%- elsif page.lang == "tr" -%}
+  {%- assign en_url = page.en_url -%}
+  {%- assign tr_url = page.url -%}
+{%- else -%}
+  {%- assign en_url = page.url -%}
+  {%- assign tr_url = page.tr_url -%}
+{%- endif -%}
 <!DOCTYPE html>
 <html lang="{{ page.lang }}">
 <head>

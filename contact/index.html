@@ -1,23 +1,18 @@
 ---
 layout: default
-permalink: /contact/
 lang: en
 page_type: contact
 show_contact_link: false
-en_url: /contact/
 tr_url: /tr/iletisim/
 hero_title: Get in touch.
 hero_subtitle: Questions, feedback, or anything else — we read every email.
 contact_aria: Contact
-meta_title: Contact — Fora Labs
+meta_title: Contact
 meta_description: Get in touch with Fora Labs. Questions, feedback, or anything else — drop us a line.
 og_description: Questions, feedback, or anything else — drop us a line.
 twitter_description: Questions, feedback, or anything else — drop us a line.
 ---
-<section class="hero">
-  <h1>{{ page.hero_title | escape }}</h1>
-  <p>{{ page.hero_subtitle | escape }}</p>
-</section>
+{%- include hero.html %}
 
 <section class="contact-block" aria-label="{{ page.contact_aria }}">
   <a class="contact-email" href="mailto:{{ site.org.email }}">{{ site.org.email }}</a>

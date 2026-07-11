@@ -1,23 +1,18 @@
 ---
 layout: default
-permalink: /tr/iletisim/
 lang: tr
 page_type: contact
 show_contact_link: false
 en_url: /contact/
-tr_url: /tr/iletisim/
 hero_title: Bize yazın.
 hero_subtitle: Sorunuz, öneriniz ya da aklınıza takılan bir şey mi var? Gelen her e-postayı okuyoruz.
 contact_aria: İletişim
-meta_title: İletişim — Fora Labs
+meta_title: İletişim
 meta_description: Fora Labs ile iletişime geçin. Sorunuz, öneriniz ya da aklınıza takılan bir şey mi var? Bize yazın.
 og_description: Sorunuz, öneriniz ya da aklınıza takılan bir şey mi var? Bize yazın.
 twitter_description: Sorunuz, öneriniz ya da aklınıza takılan bir şey mi var? Bize yazın.
 ---
-<section class="hero">
-  <h1>{{ page.hero_title | escape }}</h1>
-  <p>{{ page.hero_subtitle | escape }}</p>
-</section>
+{%- include hero.html %}
 
 <section class="contact-block" aria-label="{{ page.contact_aria }}">
   <a class="contact-email" href="mailto:{{ site.org.email }}">{{ site.org.email }}</a>

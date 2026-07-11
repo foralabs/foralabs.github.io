@@ -1,0 +1,7 @@
+{%- comment -%}
+Renders a list of project cards. Params: items (project list), t (i18n strings).
+The enclosing <section> (label, aria) stays with the caller, since it varies.
+{%- endcomment -%}
+{%- for p in include.items %}{% assign loc = p[page.lang] %}
+{%- include project-card.html p=p loc=loc t=include.t %}
+{%- endfor %}

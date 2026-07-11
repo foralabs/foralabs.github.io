@@ -2,25 +2,18 @@
 layout: default
 ---
 {%- assign t = site.data.i18n[page.lang] -%}
-<section class="hero">
-  <h1>{{ page.hero_title | escape }}</h1>
-  <p>{{ page.hero_subtitle | escape }}</p>
-</section>
+{%- include hero.html %}
 
 {%- assign products = site.data.projects | where: "category", "product" | where: "show_on_homepage", true %}
 <section class="products" aria-label="{{ t.products_label }}">
-  <p class="section-label">{{t.products_label }}</p>
-  {%- for p in products %}{%assign loc = p[page.lang] %}
-  {%- include project-card.html p=p loc=loc t=t %}
-  {%- endfor %}
+  <p class="section-label">{{ t.products_label }}</p>
+  {%- include project-grid.html items=products t=t %}
 </section>
 
 {%- assign plugins = site.data.projects | where: "category", "plugin" %}
 {%- if plugins.size > 0 %}
 <section class="plugins" aria-label="{{ t.plugins_label }}">
   <p class="section-label">{{ t.plugins_label }}</p>
-  {%- for p in plugins %}{% assign loc = p[page.lang] %}
-  {%- include project-card.html p=p loc=loc t=t %}
-  {%- endfor %}
+  {%- include project-grid.html items=plugins t=t %}
 </section>
 {%- endif %}
