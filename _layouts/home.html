@@ -7,9 +7,10 @@ layout: default
   <p>{{ page.hero_subtitle | escape }}</p>
 </section>
 
-{%- assign products = site.data.projects | where: "category", "product" %}
+{%- assign products = site.data.projects | where: "category", "product" | where: "show_on_homepage", true %}
 <section class="products" aria-label="{{ t.products_label }}">
-  {%- for p in products %}{% assign loc = p[page.lang] %}
+  <p class="section-label">{{t.products_label }}</p>
+  {%- for p in products %}{%assign loc = p[page.lang] %}
   {%- include project-card.html p=p loc=loc t=t %}
   {%- endfor %}
 </section>

@@ -10,6 +10,7 @@
 
 - id: keepr
   category: product
+  show_on_homepage: false
   external: true
   schema:
     applicationCategory: FinanceApplication
@@ -71,6 +72,7 @@
 
 - id: u2qr
   category: product
+  show_on_homepage: true
   external: true
   schema:
     applicationCategory: BusinessApplication
@@ -139,67 +141,48 @@
   en:
     name: Adit
     tag: Redmine 5 & 6 · Commercial
-    heading: Enterprise authentication & compliance for Redmine.
+    heading: Enterprise identity and access management for Redmine.
     description: >-
-      A self-serve plugin that adds enterprise-grade access control to Redmine 5
-      and 6 — configured entirely from the admin UI, no server tinkering. Built
-      for mid-market IT and security teams that need SOC 2, ISO 27001, and GDPR
-      controls.
+      Add SAML, OIDC, enforced 2FA, access policies, a built-in SCIM 2.0 server
+      and audit logging to Redmine 5 and 6 — configured entirely from the
+      Redmine administration interface, no config-file edits or server
+      restarts.
     schema_description: >-
-      Enterprise authentication and compliance plugin for Redmine 5 and 6 —
-      SAML/OIDC SSO, 2FA, SCIM provisioning, audit logging, and access policies
+      Enterprise identity and access management plugin for Redmine 5 and 6 —
+      SAML/OIDC SSO, enforced 2FA, access policies, a built-in SCIM 2.0 server
+      and audit logging
     page_url: /redmine/adit/
-    details:
-      - >-
-        Adit brings the access controls auditors ask for to a Redmine you
-        already run. Wire up your identity provider, enforce 2FA, and provision
-        users automatically — all from the admin UI, without touching a config
-        file or restarting a server.
-      - >-
-        Every sensitive action is logged for audit, and access policies let you
-        scope who can do what. It's the difference between "we use Redmine" and
-        "we can pass the security review."
     features:
       - SAML 2.0 SSO
       - OIDC SSO
       - Enforced 2FA
-      - SCIM 2.0 provisioning
-      - Audit logging
       - Access policies
+      - Built-in SCIM 2.0 server
+      - Audit logging
     cta:
       label: Get in touch →
       href: /contact/
   tr:
     name: Adit
     tag: Redmine 5 & 6 · Ticari
-    heading: Redmine için kurumsal kimlik doğrulama ve uyumluluk.
+    heading: Redmine için kurumsal kimlik ve erişim yönetimi.
     description: >-
-      Redmine 5 ve 6'ya kurumsal düzeyde erişim kontrolü ekleyen, kendi kendine
-      kurulabilen bir eklenti — tamamı yönetim panelinden yapılandırılır,
-      sunucuyla uğraşmaya gerek yok. SOC 2, ISO 27001 ve GDPR kontrollerine
-      ihtiyaç duyan orta ölçekli BT ve güvenlik ekipleri için.
+      Redmine 5 ve 6'ya SAML, OIDC, zorunlu 2FA, erişim politikaları, yerleşik
+      SCIM 2.0 sunucusu ve audit log ekleyin — tamamı Redmine yönetim
+      panelinden yapılandırılır, yapılandırma dosyası düzenlemeye veya sunucu
+      yeniden başlatmaya gerek yok.
     schema_description: >-
-      Redmine 5 ve 6 için kurumsal kimlik doğrulama ve uyumluluk eklentisi —
-      SAML/OIDC SSO, 2FA, SCIM sağlama, denetim kaydı ve erişim politikaları
+      Redmine 5 ve 6 için kurumsal kimlik ve erişim yönetimi eklentisi —
+      SAML/OIDC SSO, zorunlu 2FA, erişim politikaları, yerleşik SCIM 2.0
+      sunucusu ve audit log
     page_url: /tr/redmine/adit/
-    details:
-      - >-
-        Adit, denetçilerin istediği erişim kontrollerini hâlihazırda
-        kullandığınız Redmine'a getirir. Kimlik sağlayıcınızı bağlayın, 2FA'yı
-        zorunlu kılın ve kullanıcıları otomatik sağlayın — tamamı yönetim
-        panelinden, tek bir yapılandırma dosyasına dokunmadan, sunucuyu yeniden
-        başlatmadan.
-      - >-
-        Her hassas işlem denetim için kaydedilir; erişim politikaları kimin neyi
-        yapabileceğini belirlemenizi sağlar. Bu, "Redmine kullanıyoruz" ile
-        "güvenlik denetiminden geçebiliriz" arasındaki farktır.
     features:
       - SAML 2.0 SSO
       - OIDC SSO
       - Zorunlu 2FA
-      - SCIM 2.0 sağlama
-      - Denetim kaydı
       - Erişim politikaları
+      - Yerleşik SCIM 2.0 sunucusu
+      - Audit log
     cta:
       label: İletişime geçin →
       href: /tr/iletisim/

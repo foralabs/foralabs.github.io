@@ -1,0 +1,464 @@
+# Adit sales-page copy — single source of truth for both locales.
+# Consumed by _layouts/adit.html. Keep claims here verifiable:
+# Adit is a SCIM 2.0 *server* (exposes the Redmine user directory), never a
+# SCIM client. Do not add provisioning / sync / write-support language, named
+# identity providers, version numbers, ratings, or customer counts that are
+# not confirmed by the product.
+
+en:
+  category: Adit — Redmine Identity & Access Management Plugin
+  cta_demo: Request a demo
+  cta_contact: Contact us
+
+  hero:
+    heading: Enterprise identity and access management for Redmine
+    description: >-
+      Add SAML, OIDC, enforced 2FA, access policies, a built-in SCIM 2.0 server
+      and audit logging to Redmine 5 and 6. Configure everything from the
+      Redmine administration interface without editing configuration files or
+      restarting the server.
+
+  summary:
+    label: Overview
+    body: >-
+      Adit is a commercial plugin that brings enterprise identity and access
+      controls to a Redmine you already run. Single sign-on, mandatory
+      two-factor authentication, centrally managed access policies and a
+      complete audit trail — all managed from the Redmine administration
+      interface, with no configuration-file edits and no server restarts.
+
+  features:
+    label: Key features
+    items:
+      - title: SAML SSO
+        desc: Connect Redmine to your existing enterprise identity provider using SAML 2.0.
+      - title: OpenID Connect
+        desc: Authenticate Redmine users through standards-based OpenID Connect providers.
+      - title: Enforced 2FA
+        desc: Apply two-factor authentication requirements based on your organization's access policies.
+      - title: Optional auto-registration
+        desc: Optionally auto-register external users in Redmine the first time they sign in through SSO, gated by a login check page and your access policies.
+      - title: Access policies
+        desc: Manage authentication and access requirements centrally from the Redmine administration interface.
+      - title: Built-in SCIM 2.0 server
+        desc: Expose the Redmine user directory through a standards-compliant SCIM 2.0 API for integration with external systems.
+      - title: Audit logging
+        desc: Record identity, authentication and administration events for operational visibility and security reviews.
+      - title: Administration interface
+        desc: Configure identity providers and security policies directly from Redmine without editing deployment configuration.
+
+  screenshots:
+    label: See Adit in action
+    items:
+      - img: login-sso.png
+        caption: Single sign-on login
+      - img: identity-providers.png
+        caption: Identity providers
+      - img: saml-provider.png
+        caption: SAML provider configuration
+      - img: oidc-provider.png
+        caption: OpenID Connect provider configuration
+      - img: access-policy.png
+        caption: Access policy
+      - img: 2fa-policy.png
+        caption: 2FA policy
+      - img: scim-server.png
+        caption: SCIM 2.0 server
+      - img: audit-log.png
+        caption: Audit log
+
+  scim:
+    label: SCIM
+    heading: Turn the Redmine user directory into a SCIM 2.0 service
+    body: >-
+      Adit includes a native SCIM 2.0 server that exposes users stored in
+      Redmine through a standards-based API. External systems can query and
+      integrate with the Redmine user directory without requiring Redmine to
+      act as a SCIM client.
+
+  compat:
+    label: Compatibility
+    heading: Works with your identity infrastructure
+    body: >-
+      Compatible with standards-compliant SAML 2.0 and OpenID Connect identity
+      providers.
+    versions_label: Supported Redmine
+    versions:
+      - Redmine 5
+      - Redmine 6
+
+  security:
+    label: Security & audit
+    heading: Built for security reviews
+    body: >-
+      Help your Redmine deployment address common identity, access-control and
+      audit requirements during security reviews. Every identity,
+      authentication and administration event is recorded so you can
+      demonstrate who did what, and when.
+
+  pricing:
+    label: Pricing
+    heading: Simple, per-instance licensing
+    intro: >-
+      Adit is licensed annually, per production Redmine instance. Every licence
+      includes a staging or test installation, and every plan includes every
+      Adit feature — SAML, OIDC, 2FA, SCIM, access policies and audit logging
+      are never locked behind a higher tier.
+    period: / year
+    first_year: first year
+    renews_at: renews at
+    highlight_label: Most popular
+    plans:
+      - name: Team
+        users: Up to 50 active users
+        price: "€490"
+        launch_price: "€390"
+        highlighted: false
+        features:
+          - 1 production instance
+          - 1 staging or test instance
+          - All Adit features
+          - Updates
+          - Standard email support
+      - name: Business
+        users: Up to 250 active users
+        price: "€890"
+        launch_price: "€690"
+        highlighted: true
+        features:
+          - 1 production instance
+          - 1 staging or test instance
+          - All Adit features
+          - Updates
+          - Priority support
+          - 1-hour remote installation or onboarding call
+      - name: Enterprise
+        users: Up to 1,000 active users
+        price: "€1,490"
+        launch_price: "€1,190"
+        highlighted: false
+        features:
+          - 1 production instance
+          - 2 staging or test instances
+          - All Adit features
+          - Updates
+          - Priority support
+          - 2-hour remote installation or onboarding call
+          - Enterprise procurement and contract support
+      - name: Enterprise Plus
+        users: More than 1,000 users
+        price: Quote-based
+        launch_price: ""
+        highlighted: false
+        features:
+          - Multiple production instances
+          - Custom support or integration needs
+          - Tailored terms
+        cta: true
+    launch:
+      label: Early adopter pricing for the first 10 organizations.
+      note: The early adopter price applies to the first year only. Plans renew at the standard annual price shown above.
+
+  addons:
+    label: Add-on services
+    intro: >-
+      Optional professional services, priced separately from the licence.
+      Standard product fixes and installation documentation are included with
+      your licence; configuring your specific identity infrastructure is a
+      separate engagement.
+    items:
+      - name: Remote installation
+        price: "€250"
+      - name: Identity provider configuration
+        price: "€350"
+      - name: Installation and identity provider setup package
+        price: "€490"
+      - name: Custom integration and migration work
+        price: from €750
+      - name: Additional production instance
+        price: 60% of the main licence price
+
+  form:
+    label: Request a demo or licence
+    intro: >-
+      Tell us about your Redmine deployment and we'll get back to you. This
+      form opens your email client with the details pre-filled.
+    subject: Adit demo / licence request
+    submit: Send request
+    fields:
+      name: Name
+      email: Work email
+      company: Company
+      version: Redmine version
+      users: Number of active users
+      interest: Features of interest
+      message: Message
+    interests:
+      - SAML
+      - OIDC
+      - 2FA
+      - Access policies
+      - SCIM server
+      - Audit logs
+      - Installation support
+
+  faq:
+    label: Frequently asked questions
+    items:
+      - q: Which Redmine versions are supported?
+        a: Adit supports Redmine 5 and Redmine 6.
+      - q: Does Adit require changes to configuration files?
+        a: No. Adit is configured entirely from the Redmine administration interface. You do not need to edit deployment configuration files.
+      - q: Do configuration changes require a server restart?
+        a: No. Settings take effect from the administration interface without restarting the server.
+      - q: Is Adit a SCIM client or a SCIM server?
+        a: Adit operates as a SCIM 2.0 server for the Redmine user directory. It does not act as a SCIM client that provisions users from an identity provider into Redmine.
+      - q: Can Adit provision users from Entra ID or Okta into Redmine over SCIM?
+        a: No. Adit's SCIM 2.0 support is a server that exposes the existing Redmine user directory — it does not act as a SCIM client that imports or synchronizes a user directory from an identity provider.
+      - q: Which identity providers are supported?
+        a: Adit works with standards-compliant SAML 2.0 and OpenID Connect identity providers.
+      - q: Is Adit suitable for self-hosted Redmine?
+        a: Yes. Adit is designed for self-hosted Redmine 5 and 6 installations.
+      - q: What is included in the annual licence?
+        a: Every licence includes all Adit features, product updates, the support tier for your plan, one production instance and at least one staging or test installation.
+      - q: Is staging usage included?
+        a: Yes. Each licence includes a staging or test installation alongside your production instance.
+      - q: How is the active user limit calculated?
+        a: The plan tiers are based on the number of active user accounts in your Redmine instance.
+      - q: Is installation support included?
+        a: Installation documentation is included with every licence. Hands-on remote installation is available as a paid add-on, and Business and Enterprise plans include a remote installation or onboarding call.
+      - q: Can I license multiple Redmine instances?
+        a: Yes. Additional production instances are available at 60% of the main licence price, and Enterprise Plus covers multiple production installations.
+
+  final:
+    heading: Bring enterprise identity and access management to your Redmine
+    body: Request a demo, ask about licensing, or talk through your identity setup.
+
+tr:
+  category: Adit — Redmine Kimlik ve Erişim Yönetimi Eklentisi
+  cta_demo: Demo talep edin
+  cta_contact: İletişime geçin
+
+  hero:
+    heading: Redmine için kurumsal kimlik ve erişim yönetimi
+    description: >-
+      Redmine 5 ve 6'ya SAML, OIDC, zorunlu 2FA, erişim politikaları, yerleşik
+      SCIM 2.0 sunucusu ve audit log özellikleri ekleyin. Tüm ayarları
+      yapılandırma dosyalarına dokunmadan ve sunucuyu yeniden başlatmadan
+      Redmine yönetim panelinden yönetin.
+
+  summary:
+    label: Genel bakış
+    body: >-
+      Adit, hâlihazırda kullandığınız Redmine'a kurumsal kimlik ve erişim
+      kontrolleri getiren ticari bir eklentidir. Tekli oturum açma, zorunlu iki
+      faktörlü kimlik doğrulama, merkezi olarak yönetilen erişim politikaları ve
+      eksiksiz bir audit log — tamamı Redmine yönetim panelinden, yapılandırma
+      dosyalarına dokunmadan ve sunucuyu yeniden başlatmadan yönetilir.
+
+  features:
+    label: Temel özellikler
+    items:
+      - title: SAML SSO
+        desc: Redmine'ı SAML 2.0 üzerinden mevcut kurumsal kimlik sağlayıcınıza bağlayın.
+      - title: OpenID Connect
+        desc: Redmine kullanıcılarının standartlara uyumlu OpenID Connect sağlayıcıları üzerinden giriş yapmasını sağlayın.
+      - title: Zorunlu 2FA
+        desc: Kuruluşunuzun erişim politikalarına göre iki faktörlü kimlik doğrulama gereksinimleri uygulayın.
+      - title: İsteğe bağlı otomatik kayıt
+        desc: Harici kullanıcıları, SSO ile ilk kez giriş yaptıklarında bir giriş denetimi sayfası ve erişim politikalarınız aracılığıyla isteğe bağlı olarak Redmine'a otomatik kaydedin.
+      - title: Erişim politikaları
+        desc: Kimlik doğrulama ve erişim gereksinimlerini Redmine yönetim panelinden merkezi olarak yönetin.
+      - title: Yerleşik SCIM 2.0 sunucusu
+        desc: Redmine kullanıcı dizinini, harici sistemlerle entegrasyon için standartlara uyumlu bir SCIM 2.0 API üzerinden erişime açın.
+      - title: Audit log
+        desc: Kimlik, kimlik doğrulama ve yönetim olaylarını operasyonel görünürlük ve güvenlik incelemeleri için kaydedin.
+      - title: Yönetim paneli
+        desc: Kimlik sağlayıcılarını ve güvenlik politikalarını deployment yapılandırmasını değiştirmeden doğrudan Redmine üzerinden yönetin.
+
+  screenshots:
+    label: Adit'i yakından inceleyin
+    items:
+      - img: login-sso.png
+        caption: Tekli oturum açma (SSO) girişi
+      - img: identity-providers.png
+        caption: Kimlik sağlayıcılar
+      - img: saml-provider.png
+        caption: SAML sağlayıcı yapılandırması
+      - img: oidc-provider.png
+        caption: OpenID Connect sağlayıcı yapılandırması
+      - img: access-policy.png
+        caption: Erişim politikası
+      - img: 2fa-policy.png
+        caption: 2FA politikası
+      - img: scim-server.png
+        caption: SCIM 2.0 sunucusu
+      - img: audit-log.png
+        caption: Audit log
+
+  scim:
+    label: SCIM
+    heading: Redmine kullanıcı dizinini SCIM 2.0 servisi olarak kullanın
+    body: >-
+      Adit, Redmine'da tutulan kullanıcıları standartlara uyumlu bir API
+      üzerinden erişime açan yerleşik bir SCIM 2.0 sunucusu içerir. Harici
+      sistemler, Redmine'ın bir SCIM istemcisi olarak çalışmasına gerek kalmadan
+      Redmine kullanıcı dizinini sorgulayabilir ve kendi süreçlerine entegre
+      edebilir.
+
+  compat:
+    label: Uyumluluk
+    heading: Mevcut kimlik altyapınızla çalışır
+    body: >-
+      Standartlara uyumlu SAML 2.0 ve OpenID Connect kimlik sağlayıcılarıyla
+      uyumludur.
+    versions_label: Desteklenen Redmine
+    versions:
+      - Redmine 5
+      - Redmine 6
+
+  security:
+    label: Güvenlik ve audit
+    heading: Güvenlik incelemeleri için tasarlandı
+    body: >-
+      Redmine kurulumunuzun güvenlik incelemelerinde karşılaşılan yaygın kimlik,
+      erişim kontrolü ve kayıt gereksinimlerini karşılamasına yardımcı olun. Her
+      kimlik, kimlik doğrulama ve yönetim olayı kaydedilir; böylece kimin, neyi,
+      ne zaman yaptığını gösterebilirsiniz.
+
+  pricing:
+    label: Fiyatlandırma
+    heading: Sade, kurulum başına lisanslama
+    intro: >-
+      Adit, production Redmine kurulumu başına yıllık olarak lisanslanır. Her
+      lisansa bir staging veya test kurulumu dahildir ve her planda tüm Adit
+      özellikleri yer alır — SAML, OIDC, 2FA, SCIM, erişim politikaları ve audit
+      log asla üst pakete kilitlenmez.
+    period: / yıl
+    first_year: ilk yıl
+    renews_at: yenileme
+    highlight_label: En popüler
+    plans:
+      - name: Team
+        users: 50 aktif kullanıcıya kadar
+        price: "€490"
+        launch_price: "€390"
+        highlighted: false
+        features:
+          - 1 production kurulumu
+          - 1 staging veya test kurulumu
+          - Tüm Adit özellikleri
+          - Güncellemeler
+          - Standart e-posta desteği
+      - name: Business
+        users: 250 aktif kullanıcıya kadar
+        price: "€890"
+        launch_price: "€690"
+        highlighted: true
+        features:
+          - 1 production kurulumu
+          - 1 staging veya test kurulumu
+          - Tüm Adit özellikleri
+          - Güncellemeler
+          - Öncelikli destek
+          - 1 saatlik uzaktan kurulum veya başlangıç görüşmesi
+      - name: Enterprise
+        users: 1.000 aktif kullanıcıya kadar
+        price: "€1.490"
+        launch_price: "€1.190"
+        highlighted: false
+        features:
+          - 1 production kurulumu
+          - 2 staging veya test kurulumu
+          - Tüm Adit özellikleri
+          - Güncellemeler
+          - Öncelikli destek
+          - 2 saatlik uzaktan kurulum veya başlangıç görüşmesi
+          - Kurumsal satın alma ve sözleşme desteği
+      - name: Enterprise Plus
+        users: 1.000'den fazla kullanıcı
+        price: Teklif usulü
+        launch_price: ""
+        highlighted: false
+        features:
+          - Birden fazla production kurulumu
+          - Özel destek veya entegrasyon ihtiyaçları
+          - Size özel koşullar
+        cta: true
+    launch:
+      label: İlk 10 kuruluş için erken katılımcı fiyatlandırması.
+      note: Erken katılımcı fiyatı yalnızca ilk yıl için geçerlidir. Planlar, yukarıda gösterilen standart yıllık fiyattan yenilenir.
+
+  addons:
+    label: Ek hizmetler
+    intro: >-
+      Lisanstan ayrı fiyatlandırılan isteğe bağlı profesyonel hizmetler.
+      Standart ürün hataları ve kurulum dokümantasyonu lisansa dahildir; sizin
+      özel kimlik altyapınızın yapılandırılması ayrı bir çalışmadır.
+    items:
+      - name: Uzaktan kurulum
+        price: "€250"
+      - name: Kimlik sağlayıcı yapılandırması
+        price: "€350"
+      - name: Kurulum ve kimlik sağlayıcı yapılandırma paketi
+        price: "€490"
+      - name: Özel entegrasyon ve geçiş çalışmaları
+        price: €750'den başlayan fiyatlarla
+      - name: Ek production kurulumu
+        price: ana lisans fiyatının %60'ı
+
+  form:
+    label: Demo veya lisans talep edin
+    intro: >-
+      Redmine kurulumunuzdan bahsedin, size geri dönelim. Bu form, bilgiler önceden
+      doldurulmuş olarak e-posta uygulamanızı açar.
+    subject: Adit demo / lisans talebi
+    submit: Talebi gönder
+    fields:
+      name: Ad soyad
+      email: İş e-postası
+      company: Şirket
+      version: Redmine sürümü
+      users: Aktif kullanıcı sayısı
+      interest: İlgilenilen özellikler
+      message: Mesaj
+    interests:
+      - SAML
+      - OIDC
+      - 2FA
+      - Erişim politikaları
+      - SCIM sunucusu
+      - Audit log
+      - Kurulum desteği
+
+  faq:
+    label: Sıkça sorulan sorular
+    items:
+      - q: Hangi Redmine sürümleri destekleniyor?
+        a: Adit, Redmine 5 ve Redmine 6'yı destekler.
+      - q: Adit yapılandırma dosyalarında değişiklik gerektiriyor mu?
+        a: Hayır. Adit tamamen Redmine yönetim panelinden yapılandırılır. Deployment yapılandırma dosyalarını düzenlemeniz gerekmez.
+      - q: Yapılandırma değişiklikleri sunucunun yeniden başlatılmasını gerektiriyor mu?
+        a: Hayır. Ayarlar, sunucu yeniden başlatılmadan yönetim panelinden geçerli olur.
+      - q: Adit bir SCIM istemcisi mi yoksa SCIM sunucusu mu?
+        a: Adit, Redmine kullanıcı dizini için bir SCIM 2.0 sunucusu olarak çalışır. Bir kimlik sağlayıcıdan Redmine'a kullanıcı aktaran bir SCIM istemcisi olarak çalışmaz.
+      - q: Adit, Entra ID veya Okta'dan Redmine'a SCIM üzerinden kullanıcı aktarabilir mi?
+        a: Hayır. Adit'in SCIM 2.0 desteği, mevcut Redmine kullanıcı dizinini erişime açan bir sunucudur — bir kimlik sağlayıcıdan kullanıcı dizini içe aktaran veya eşitleyen bir SCIM istemcisi olarak çalışmaz.
+      - q: Hangi kimlik sağlayıcıları destekleniyor?
+        a: Adit, standartlara uyumlu SAML 2.0 ve OpenID Connect kimlik sağlayıcılarıyla çalışır.
+      - q: Adit, kendi sunucusunda barındırılan (self-hosted) Redmine için uygun mu?
+        a: Evet. Adit, kendi sunucunuzda barındırdığınız Redmine 5 ve 6 kurulumları için tasarlanmıştır.
+      - q: Yıllık lisansa neler dahil?
+        a: Her lisansa tüm Adit özellikleri, ürün güncellemeleri, planınıza ait destek seviyesi, bir production kurulumu ve en az bir staging veya test kurulumu dahildir.
+      - q: Staging kullanımı dahil mi?
+        a: Evet. Her lisansa, production kurulumunuzun yanında bir staging veya test kurulumu dahildir.
+      - q: Aktif kullanıcı sınırı nasıl hesaplanıyor?
+        a: Plan seviyeleri, Redmine kurulumunuzdaki aktif kullanıcı hesabı sayısına göre belirlenir.
+      - q: Kurulum desteği dahil mi?
+        a: Kurulum dokümantasyonu her lisansa dahildir. Uygulamalı uzaktan kurulum ücretli bir ek hizmet olarak sunulur; Business ve Enterprise planları bir uzaktan kurulum veya başlangıç görüşmesi içerir.
+      - q: Birden fazla Redmine kurulumunu lisanslayabilir miyim?
+        a: Evet. Ek production kurulumları ana lisans fiyatının %60'ı üzerinden sunulur; Enterprise Plus ise birden fazla production kurulumunu kapsar.
+
+  final:
+    heading: Redmine'ınıza kurumsal kimlik ve erişim yönetimi getirin
+    body: Demo talep edin, lisanslamayı sorun veya kimlik altyapınızı birlikte konuşalım.

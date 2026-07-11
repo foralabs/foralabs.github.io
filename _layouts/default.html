@@ -4,7 +4,7 @@
   {%- include head.html %}
 </head>
 <body>
-<div class="wrap">
+<div class="wrap{% if page.wrap_class %} {{ page.wrap_class }}{% endif %}">
 
   {%- include header.html %}
 
