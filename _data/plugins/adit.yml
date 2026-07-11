@@ -1,9 +1,13 @@
 # Adit sales-page copy — single source of truth for both locales.
 # Consumed by _layouts/plugin.html (via project_id). Keep claims here verifiable:
-# Adit is a SCIM 2.0 *server* (exposes the Redmine user directory), never a
-# SCIM client. Do not add provisioning / sync / write-support language, named
-# identity providers, version numbers, ratings, or customer counts that are
-# not confirmed by the product.
+# Adit is a SCIM 2.0 *server*: identity providers (the SCIM clients) push to it
+# to create, update and deactivate Redmine users and groups, and to sync group
+# membership. Provisioning / sync / write-support language IS accurate — the
+# server implements create/replace/PATCH/deactivate (deactivation locks the
+# account, never hard-deletes). Adit is NOT a SCIM *client* (it never pulls a
+# directory from the provider). Microsoft Entra ID and Okta are verified-
+# compatible SCIM 2.0 clients and may be named as examples. Do not add version
+# numbers, ratings, or customer counts that are not confirmed by the product.
 
 en:
   category: Adit — Redmine Identity & Access Management Plugin
@@ -13,19 +17,20 @@ en:
   hero:
     heading: Enterprise identity and access management for Redmine
     description: >-
-      Add SAML, OIDC, enforced 2FA, access policies, a built-in SCIM 2.0 server
-      and audit logging to Redmine 5 and 6. Configure everything from the
-      Redmine administration interface without editing configuration files or
-      restarting the server.
+      Add SAML, OIDC, enforced 2FA, access policies, automated SCIM 2.0 user
+      provisioning and audit logging to Redmine 5 and 6. Configure everything
+      from the Redmine administration interface without editing configuration
+      files or restarting the server.
 
   summary:
     label: Overview
     body: >-
       Adit is a commercial plugin that brings enterprise identity and access
       controls to a Redmine you already run. Single sign-on, mandatory
-      two-factor authentication, centrally managed access policies and a
-      complete audit trail — all managed from the Redmine administration
-      interface, with no configuration-file edits and no server restarts.
+      two-factor authentication, automated user provisioning from your identity
+      provider, centrally managed access policies and a complete audit trail —
+      all managed from the Redmine administration interface, with no
+      configuration-file edits and no server restarts.
 
   features:
     label: Key features
@@ -40,8 +45,8 @@ en:
         desc: Optionally auto-register external users in Redmine the first time they sign in through SSO, gated by a login check page and your access policies.
       - title: Access policies
         desc: Manage authentication and access requirements centrally from the Redmine administration interface.
-      - title: Built-in SCIM 2.0 server
-        desc: Expose the Redmine user directory through a standards-compliant SCIM 2.0 API for integration with external systems.
+      - title: Automated SCIM 2.0 provisioning
+        desc: Let identity providers such as Microsoft Entra ID and Okta create, update and deactivate Redmine users and keep group memberships in sync over a standards-compliant SCIM 2.0 API.
       - title: Audit logging
         desc: Record identity, authentication and administration events for operational visibility and security reviews.
       - title: Administration interface
@@ -69,12 +74,16 @@ en:
 
   scim:
     label: SCIM
-    heading: Turn the Redmine user directory into a SCIM 2.0 service
+    heading: Provision Redmine users and groups from your identity provider
     body: >-
-      Adit includes a native SCIM 2.0 server that exposes users stored in
-      Redmine through a standards-based API. External systems can query and
-      integrate with the Redmine user directory without requiring Redmine to
-      act as a SCIM client.
+      Adit includes a native SCIM 2.0 server — the standard endpoint identity
+      providers like Microsoft Entra ID and Okta push to. Your provider
+      automatically creates, updates and deactivates Redmine users and keeps
+      group memberships in sync, so joiners, movers and leavers are handled
+      centrally. Deactivation locks the Redmine account rather than deleting it,
+      and every SCIM operation is written to the audit log. Adit is the SCIM
+      server, not a client — your provider connects to it; Adit never reaches
+      out to pull a directory.
 
   compat:
     label: Compatibility
@@ -200,7 +209,7 @@ en:
       - OIDC
       - 2FA
       - Access policies
-      - SCIM server
+      - SCIM provisioning
       - Audit logs
       - Installation support
 
@@ -214,9 +223,9 @@ en:
       - q: Do configuration changes require a server restart?
         a: No. Settings take effect from the administration interface without restarting the server.
       - q: Is Adit a SCIM client or a SCIM server?
-        a: Adit operates as a SCIM 2.0 server for the Redmine user directory. It does not act as a SCIM client that provisions users from an identity provider into Redmine.
+        a: Adit operates as a SCIM 2.0 server. Your identity provider (the SCIM client) connects to it and provisions users and groups into Redmine. Adit does not reach out to pull a directory from the provider — the provider pushes changes to Adit.
       - q: Can Adit provision users from Entra ID or Okta into Redmine over SCIM?
-        a: No. Adit's SCIM 2.0 support is a server that exposes the existing Redmine user directory — it does not act as a SCIM client that imports or synchronizes a user directory from an identity provider.
+        a: Yes. Adit's SCIM 2.0 server lets identity providers such as Microsoft Entra ID and Okta automatically create, update and deactivate Redmine users and keep group memberships in sync. Deactivating a user locks the Redmine account rather than deleting it, and every SCIM operation is recorded in the audit log.
       - q: Which identity providers are supported?
         a: Adit works with standards-compliant SAML 2.0 and OpenID Connect identity providers.
       - q: Is Adit suitable for self-hosted Redmine?
@@ -244,8 +253,8 @@ tr:
   hero:
     heading: Redmine için kurumsal kimlik ve erişim yönetimi
     description: >-
-      Redmine 5 ve 6'ya SAML, OIDC, zorunlu 2FA, erişim politikaları, yerleşik
-      SCIM 2.0 sunucusu ve audit log özellikleri ekleyin. Tüm ayarları
+      Redmine 5 ve 6'ya SAML, OIDC, zorunlu 2FA, erişim politikaları, otomatik
+      SCIM 2.0 kullanıcı sağlama ve audit log özellikleri ekleyin. Tüm ayarları
       yapılandırma dosyalarına dokunmadan ve sunucuyu yeniden başlatmadan
       Redmine yönetim panelinden yönetin.
 
@@ -254,9 +263,10 @@ tr:
     body: >-
       Adit, hâlihazırda kullandığınız Redmine'a kurumsal kimlik ve erişim
       kontrolleri getiren ticari bir eklentidir. Tekli oturum açma, zorunlu iki
-      faktörlü kimlik doğrulama, merkezi olarak yönetilen erişim politikaları ve
-      eksiksiz bir audit log — tamamı Redmine yönetim panelinden, yapılandırma
-      dosyalarına dokunmadan ve sunucuyu yeniden başlatmadan yönetilir.
+      faktörlü kimlik doğrulama, kimlik sağlayıcınızdan otomatik kullanıcı
+      sağlama, merkezi olarak yönetilen erişim politikaları ve eksiksiz bir
+      audit log — tamamı Redmine yönetim panelinden, yapılandırma dosyalarına
+      dokunmadan ve sunucuyu yeniden başlatmadan yönetilir.
 
   features:
     label: Temel özellikler
@@ -271,8 +281,8 @@ tr:
         desc: Harici kullanıcıları, SSO ile ilk kez giriş yaptıklarında bir giriş denetimi sayfası ve erişim politikalarınız aracılığıyla isteğe bağlı olarak Redmine'a otomatik kaydedin.
       - title: Erişim politikaları
         desc: Kimlik doğrulama ve erişim gereksinimlerini Redmine yönetim panelinden merkezi olarak yönetin.
-      - title: Yerleşik SCIM 2.0 sunucusu
-        desc: Redmine kullanıcı dizinini, harici sistemlerle entegrasyon için standartlara uyumlu bir SCIM 2.0 API üzerinden erişime açın.
+      - title: Otomatik SCIM 2.0 ile kullanıcı sağlama
+        desc: Microsoft Entra ID ve Okta gibi kimlik sağlayıcıların, standartlara uyumlu bir SCIM 2.0 API üzerinden Redmine kullanıcılarını oluşturmasına, güncellemesine ve devre dışı bırakmasına, ayrıca grup üyeliklerini eşitlemesine olanak tanıyın.
       - title: Audit log
         desc: Kimlik, kimlik doğrulama ve yönetim olaylarını operasyonel görünürlük ve güvenlik incelemeleri için kaydedin.
       - title: Yönetim paneli
@@ -300,13 +310,16 @@ tr:
 
   scim:
     label: SCIM
-    heading: Redmine kullanıcı dizinini SCIM 2.0 servisi olarak kullanın
+    heading: Kullanıcıları ve grupları kimlik sağlayıcınızdan Redmine'a sağlayın
     body: >-
-      Adit, Redmine'da tutulan kullanıcıları standartlara uyumlu bir API
-      üzerinden erişime açan yerleşik bir SCIM 2.0 sunucusu içerir. Harici
-      sistemler, Redmine'ın bir SCIM istemcisi olarak çalışmasına gerek kalmadan
-      Redmine kullanıcı dizinini sorgulayabilir ve kendi süreçlerine entegre
-      edebilir.
+      Adit, Microsoft Entra ID ve Okta gibi kimlik sağlayıcıların bağlandığı
+      yerleşik bir SCIM 2.0 sunucusu içerir. Kimlik sağlayıcınız Redmine
+      kullanıcılarını otomatik olarak oluşturur, günceller ve devre dışı bırakır;
+      grup üyeliklerini de eşitler. Böylece işe giren, görev değiştiren ve
+      ayrılan kullanıcılar merkezi olarak yönetilir. Devre dışı bırakma, Redmine
+      hesabını silmek yerine kilitler ve her SCIM işlemi audit log'a kaydedilir.
+      Adit, istemci değil SCIM sunucusudur — sağlayıcınız Adit'e bağlanır; Adit
+      hiçbir zaman dışarı çıkıp dizin çekmez.
 
   compat:
     label: Uyumluluk
@@ -431,7 +444,7 @@ tr:
       - OIDC
       - 2FA
       - Erişim politikaları
-      - SCIM sunucusu
+      - SCIM ile kullanıcı sağlama
       - Audit log
       - Kurulum desteği
 
@@ -445,9 +458,9 @@ tr:
       - q: Yapılandırma değişiklikleri sunucunun yeniden başlatılmasını gerektiriyor mu?
         a: Hayır. Ayarlar, sunucu yeniden başlatılmadan yönetim panelinden geçerli olur.
       - q: Adit bir SCIM istemcisi mi yoksa SCIM sunucusu mu?
-        a: Adit, Redmine kullanıcı dizini için bir SCIM 2.0 sunucusu olarak çalışır. Bir kimlik sağlayıcıdan Redmine'a kullanıcı aktaran bir SCIM istemcisi olarak çalışmaz.
+        a: Adit bir SCIM 2.0 sunucusu olarak çalışır. Kimlik sağlayıcınız (SCIM istemcisi) Adit'e bağlanır ve kullanıcıları ve grupları Redmine'a sağlar. Adit, sağlayıcıdan dizin çekmek için dışarı bağlanmaz — değişiklikleri sağlayıcı Adit'e iletir.
       - q: Adit, Entra ID veya Okta'dan Redmine'a SCIM üzerinden kullanıcı aktarabilir mi?
-        a: Hayır. Adit'in SCIM 2.0 desteği, mevcut Redmine kullanıcı dizinini erişime açan bir sunucudur — bir kimlik sağlayıcıdan kullanıcı dizini içe aktaran veya eşitleyen bir SCIM istemcisi olarak çalışmaz.
+        a: Evet. Adit'in SCIM 2.0 sunucusu, Microsoft Entra ID ve Okta gibi kimlik sağlayıcıların Redmine kullanıcılarını otomatik olarak oluşturmasına, güncellemesine ve devre dışı bırakmasına, ayrıca grup üyeliklerini eşitlemesine olanak tanır. Bir kullanıcıyı devre dışı bırakmak, Redmine hesabını silmek yerine kilitler ve her SCIM işlemi audit log'a kaydedilir.
       - q: Hangi kimlik sağlayıcıları destekleniyor?
         a: Adit, standartlara uyumlu SAML 2.0 ve OpenID Connect kimlik sağlayıcılarıyla çalışır.
       - q: Adit, kendi sunucusunda barındırılan (self-hosted) Redmine için uygun mu?
