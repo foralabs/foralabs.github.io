@@ -45,7 +45,7 @@ body {
 
 .wrap { max-width: var(--max); margin: 0 auto; }
 
-header {
+.site-header {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
@@ -576,16 +576,18 @@ footer {
 }
 
 .plugin-plan {
-  border: 1px solid var(--border);
+  border: 1px solid #e0ddd8;
   border-radius: 10px;
   padding: 1.5rem 1.35rem;
   display: flex;
   flex-direction: column;
   position: relative;
+  color: #1a1a1a;
+  background: #fff;
 }
 
 .plugin-plan--featured {
-  border-color: var(--fg);
+  border-color: #1a1a1a;
   border-width: 2px;
 }
 
@@ -597,8 +599,8 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  background: var(--fg);
-  color: var(--bg);
+  background: #1a1a1a;
+  color: #fff;
   padding: 0.15rem 0.55rem;
   border-radius: 999px;
 }
@@ -610,30 +612,31 @@ footer {
   margin-bottom: 0.35rem;
 }
 
-.plugin-plan-users { font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem; }
+.plugin-plan-users { font-size: 0.82rem; color: #5a5a5a; margin-bottom: 1rem; }
 
 .plugin-plan-price { margin-bottom: 1.1rem; line-height: 1.35; }
 .plugin-plan-amount { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
-.plugin-plan-period { font-size: 0.8rem; color: var(--muted); margin-left: 0.35rem; }
-.plugin-plan-renews { display: block; font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+.plugin-plan-period { font-size: 0.8rem; color: #5a5a5a; margin-left: 0.35rem; }
+.plugin-plan-renews { display: block; font-size: 0.75rem; color: #5a5a5a; margin-top: 0.25rem; }
 
 .plugin-plan-features { list-style: none; margin-bottom: 1.25rem; }
 .plugin-plan-features li {
   font-size: 0.86rem;
   padding: 0.35rem 0 0.35rem 1.1rem;
   position: relative;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid #e0ddd8;
 }
 .plugin-plan-features li:first-child { border-top: none; }
 .plugin-plan-features li::before {
   content: "·";
   position: absolute;
   left: 0.15rem;
-  color: var(--muted);
+  color: #5a5a5a;
   font-weight: 700;
 }
 
 .plugin-plan-cta { margin-top: auto; text-align: center; }
+.plugin-plan-cta.cta-button { background: #1a1a1a; color: #fff; }
 
 /* Add-ons */
 .plugin-addons { list-style: none; margin-top: 1.25rem; }
@@ -655,27 +658,31 @@ footer {
   gap: 1.1rem;
   margin-top: 1.5rem;
   max-width: 680px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
 }
 .plugin-field { display: flex; flex-direction: column; gap: 0.4rem; }
 .plugin-field--full { grid-column: 1 / -1; }
 .plugin-field label, .plugin-field legend {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--fg);
+  color: #1a1a1a;
 }
 .plugin-field input, .plugin-field textarea {
   font-family: var(--font);
   font-size: 0.92rem;
-  color: var(--fg);
-  background: var(--bg);
-  border: 1px solid var(--border);
+  color: #1a1a1a;
+  background: #fff;
+  border: 1px solid #d8d5d0;
   border-radius: 6px;
   padding: 0.55rem 0.7rem;
   width: 100%;
 }
 .plugin-field input:focus, .plugin-field textarea:focus {
   outline: none;
-  border-color: var(--fg);
+  border-color: #1a1a1a;
 }
 .plugin-field textarea { resize: vertical; }
 .plugin-field fieldset { border: none; }
@@ -686,7 +693,7 @@ footer {
   gap: 0.4rem;
   font-size: 0.88rem;
   font-weight: 400;
-  color: var(--muted);
+  color: #5a5a5a;
 }
 .plugin-form button { grid-column: 1 / -1; justify-self: start; border: none; cursor: pointer; }
 
