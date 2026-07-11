@@ -43,6 +43,11 @@ body {
   padding: 3rem 1.5rem 6rem;
 }
 
+hr {
+  border-top: 1px solid var(--border);
+  border-bottom: none;
+}
+
 .wrap { max-width: var(--max); margin: 0 auto; }
 
 .site-header {
