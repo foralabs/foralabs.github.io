@@ -1,11 +1,11 @@
 :root {
   --bg: #f9f7f4;
   --fg: #1a1a1a;
-  --muted: #6b6b6b;
+  --muted: #5a5a5a;
   --link: #1a1a1a;
   --link-hover: #555;
   --border: #e0ddd8;
-  --max: 640px;
+  --max: 960px;
   --font: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", "Fira Code", monospace;
 }
@@ -22,6 +22,16 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
 
 html { font-size: 17px; }
 
@@ -73,7 +83,13 @@ header {
   text-decoration: none;
 }
 
-.lang-switcher { display: flex; gap: 0.75rem; align-items: baseline; }
+.lang-switcher {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--border);
+}
 
 .lang-switcher a {
   font-size: 0.8rem;
@@ -90,14 +106,28 @@ header {
 .hero { margin-bottom: 4rem; }
 
 .hero h1 {
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.2;
   letter-spacing: -0.02em;
   margin-bottom: 1rem;
 }
 
 .hero p { color: var(--muted); font-size: 1rem; max-width: 480px; }
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid var(--fg);
+  padding-bottom: 2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.hero-cta:hover { color: var(--link-hover); border-color: var(--link-hover); }
 
 .products { margin-bottom: 4.5rem; }
 
@@ -139,7 +169,13 @@ header {
   transition: color 0.15s;
 }
 
-.product h2 a:hover { color: var(--link-hover); }
+.product h2 a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.product:hover .product-link { color: var(--link-hover); border-color: var(--link-hover); }
 
 .product p {
   color: var(--muted);
@@ -324,7 +360,8 @@ footer {
 
 /* ---- Adit sales page ---- */
 
-.wrap.wide { max-width: 960px; }
+/* .wrap.wide is retained for markup compatibility; width now matches the default container */
+.wrap.wide { max-width: var(--max); }
 
 .plugin { margin-bottom: 4rem; }
 
@@ -344,7 +381,6 @@ footer {
 .plugin-cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
 
 .plugin-section {
-  border-top: 1px solid var(--border);
   padding-top: 2.25rem;
   margin-top: 3rem;
   scroll-margin-top: 2rem;
@@ -590,4 +626,5 @@ footer {
 
 @media (max-width: 560px) {
   .plugin-form { grid-template-columns: 1fr; }
+  .lang-switcher { padding-left: 0; border-left: none; }
 }

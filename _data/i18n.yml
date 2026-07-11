@@ -10,6 +10,7 @@ en:
   org_description: Simple software tools for real work
   products_label: Products
   plugins_label: Redmine Plugins
+  hero_cta: See what we build →
   features_label: Features
   learn_more: Learn more →
   back_label: ← All products
@@ -27,6 +28,7 @@ tr:
   org_description: İşini gören sade yazılımlar
   products_label: Ürünler
   plugins_label: Redmine Eklentileri
+  hero_cta: Neler yaptığımıza bakın →
   features_label: Özellikler
   learn_more: Daha fazla →
   back_label: ← Tüm ürünler

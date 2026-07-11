@@ -1,4 +1,8 @@
+{%- assign t = site.data.i18n[page.lang] -%}
 <section class="hero">
   <h1>{{ page.hero_title | escape }}</h1>
   <p>{{ page.hero_subtitle | escape }}</p>
+  {%- if page.page_type == 'home' and t.hero_cta %}
+  <a class="hero-cta" href="{{ t.products_url | relative_url }}">{{ t.hero_cta | escape }}</a>
+  {%- endif %}
 </section>
