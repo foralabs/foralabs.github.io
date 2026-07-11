@@ -445,6 +445,108 @@ footer {
 
 .plugin-shot a:hover img { border-color: var(--link-hover); transform: translateY(-2px); }
 
+.plugin-shot-link { cursor: zoom-in; }
+
+/* Lightbox overlay */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* The `hidden` attribute must win over `display: flex` above, otherwise the
+   transparent overlay stays on top of the page and swallows every click. */
+.lightbox[hidden] { display: none; }
+
+.lightbox.is-open { opacity: 1; }
+
+.lightbox-figure {
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lightbox-img {
+  display: block;
+  max-width: 100%;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+  color: #f2f0ec;
+  font-size: 0.85rem;
+  text-align: center;
+  max-width: 60ch;
+}
+
+.lightbox-close,
+.lightbox-nav {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: clamp(0.75rem, 2vw, 1.5rem);
+  right: clamp(0.75rem, 2vw, 1.5rem);
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.6rem;
+}
+
+.lightbox-nav {
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
+}
+
+@media (max-width: 640px) {
+  .lightbox-nav {
+    position: absolute;
+    bottom: clamp(0.75rem, 3vw, 1.5rem);
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+  .lightbox-prev { left: clamp(0.75rem, 4vw, 2rem); }
+  .lightbox-next { right: clamp(0.75rem, 4vw, 2rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox { transition: none; }
+}
+
 /* SCIM highlight block */
 .plugin-highlight {
   background: color-mix(in srgb, var(--fg) 4%, transparent);

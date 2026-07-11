@@ -60,7 +60,7 @@ layout: default
       {%- for s in a.screenshots.items %}
       {%- assign shot_src = '/assets/img/' | append: page.project_id | append: '/' | append: s.img %}
       <figure class="plugin-shot">
-        <a href="{{ shot_src | relative_url }}" target="_blank" rel="noopener">
+        <a class="plugin-shot-link" href="{{ shot_src | relative_url }}" data-lightbox="screenshots" target="_blank" rel="noopener">
           <img src="{{ shot_src | relative_url }}" alt="{{ loc.name | escape }} — {{ s.caption | escape }}" loading="lazy" />
         </a>
         <figcaption>{{ s.caption }}</figcaption>
@@ -233,6 +233,20 @@ layout: default
   {%- endif %}
 
 </article>
+
+{%- comment %} Lightbox overlay — hidden until a screenshot is opened, driven by lightbox.js {%- endcomment %}
+{%- if a.screenshots %}
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" hidden>
+  <button type="button" class="lightbox-close" data-lightbox-close aria-label="{{ t.lightbox_close }}">&times;</button>
+  <button type="button" class="lightbox-nav lightbox-prev" data-lightbox-prev aria-label="{{ t.lightbox_prev }}">&#8249;</button>
+  <figure class="lightbox-figure">
+    <img class="lightbox-img" src="" alt="" />
+    <figcaption class="lightbox-caption"></figcaption>
+  </figure>
+  <button type="button" class="lightbox-nav lightbox-next" data-lightbox-next aria-label="{{ t.lightbox_next }}">&#8250;</button>
+</div>
+<script src="{{ '/assets/js/lightbox.js' | relative_url }}"></script>
+{%- endif %}
 
 {%- if a.form %}
 <script src="{{ '/assets/js/request-form.js' | relative_url }}"></script>

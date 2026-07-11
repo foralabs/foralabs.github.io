@@ -18,6 +18,9 @@ en:
   contact_label: Contact
   copyright: © 2026 Fora Labs
   footer_tagline: Built to last. Nothing more.
+  lightbox_close: Close
+  lightbox_prev: Previous image
+  lightbox_next: Next image
 tr:
   home_url: /tr/
   products_url: /tr/urunler/
@@ -36,3 +39,6 @@ tr:
   contact_label: İletişim
   copyright: © 2026 Fora Labs
   footer_tagline: Sade yazılımlar.
+  lightbox_close: Kapat
+  lightbox_prev: Önceki görsel
+  lightbox_next: Sonraki görsel
