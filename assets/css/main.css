@@ -675,7 +675,7 @@ footer {
   font-weight: 600;
   color: #1a1a1a;
 }
-.plugin-field input, .plugin-field textarea {
+.plugin-field input:not([type="checkbox"]):not([type="radio"]), .plugin-field textarea {
   font-family: var(--font);
   font-size: 0.92rem;
   color: #1a1a1a;
@@ -685,12 +685,12 @@ footer {
   padding: 0.55rem 0.7rem;
   width: 100%;
 }
-.plugin-field input:focus, .plugin-field textarea:focus {
+.plugin-field input:not([type="checkbox"]):not([type="radio"]):focus, .plugin-field textarea:focus {
   outline: none;
   border-color: #1a1a1a;
 }
 .plugin-field textarea { resize: vertical; }
-.plugin-field fieldset { border: none; }
+fieldset.plugin-field { border: none; padding: 0; margin: 0; min-width: 0; }
 .plugin-checks { display: flex; flex-wrap: wrap; gap: 0.5rem 1.1rem; margin-top: 0.5rem; }
 .plugin-check {
   display: flex;
@@ -700,6 +700,7 @@ footer {
   font-weight: 400;
   color: #5a5a5a;
 }
+.plugin-check input { flex: 0 0 auto; width: auto; margin: 0; }
 .plugin-form button { grid-column: 1 / -1; justify-self: start; border: none; cursor: pointer; }
 
 /* FAQ */
