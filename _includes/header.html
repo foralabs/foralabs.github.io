@@ -1,6 +1,11 @@
 {%- assign t = site.data.i18n[page.lang] -%}
 <header class="site-header">
-  <a class="wordmark" href="{{ t.home_url | relative_url }}">FORA LABS</a>
+  <a class="wordmark" href="{{ t.home_url | relative_url }}">
+    <picture>
+      <source srcset="{{ '/assets/img/logo-dark.png' | relative_url }}" media="(prefers-color-scheme: dark)" />
+      <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="Fora Labs" width="1580" height="233" />
+    </picture>
+  </a>
   <nav class="nav" aria-label="{{ t.nav_aria }}">
     <a href="{{ t.products_url | relative_url }}"{% if page.nav_section == 'products' %} aria-current="page"{% endif %}>{{ t.products_label }}</a>
     <a href="{{ t.plugins_url | relative_url }}"{% if page.nav_section == 'plugins' %} aria-current="page"{% endif %}>{{ t.plugins_label }}</a>

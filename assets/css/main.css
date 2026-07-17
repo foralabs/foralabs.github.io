@@ -79,13 +79,15 @@ hr {
 .nav a[aria-current="page"] { color: var(--fg); font-weight: 600; }
 
 .wordmark {
-  font-family: var(--mono);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--fg);
+  display: inline-flex;
+  align-self: center;
   text-decoration: none;
+}
+
+.wordmark img {
+  display: block;
+  height: 1.25rem;
+  width: auto;
 }
 
 .lang-switcher {
