@@ -247,12 +247,12 @@ layout: default
   </figure>
   <button type="button" class="lightbox-nav lightbox-next" data-lightbox-next aria-label="{{ t.lightbox_next }}">&#8250;</button>
 </div>
-<script src="{{ '/assets/js/lightbox.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/lightbox.js' | fingerprint | relative_url }}"></script>
 {%- endif %}
 
 {%- if a.form %}
-<script src="{{ '/assets/js/request-form.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/request-form.js' | fingerprint | relative_url }}"></script>
 {%- endif %}
 
 {%- comment %} Floating section navigation — auto-built from the rendered sections {%- endcomment %}
-<script src="{{ '/assets/js/plugin-nav.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/plugin-nav.js' | fingerprint | relative_url }}"></script>
