@@ -6,6 +6,10 @@ org:
   name: Fora Labs
   email: hi@forabase.app
 
+# GA4 measurement ID (G-XXXXXXXXXX). Left empty until a property exists —
+# the tag only renders when this is set, so dev/preview builds stay untracked.
+google_analytics: G-VM49MFFTFC
+
 # Web3Forms access key — powers the contact & plugin request forms.
 # Get a free key at https://web3forms.com (tied to the delivery inbox).
 web3forms_key: f0193b8f-ab19-427b-9e70-19c222ca09ef
